@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PowerPoint Shortcut Master</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Ambient background blobs -->
+    <div class="bg-blob blob-1"></div>
+    <div class="bg-blob blob-2"></div>
+    <div class="bg-blob blob-3"></div>
+
+    <div id="app">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="logo">
+                <div class="logo-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                        <line x1="8" y1="21" x2="16" y2="21"/>
+                        <line x1="12" y1="17" x2="12" y2="21"/>
+                    </svg>
+                </div>
+                <h1>Shortcut<span>Master</span></h1>
+            </div>
+            <div class="header-stats">
+                <div class="stat-pill" id="headerMastered">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    <span><strong id="masteredCount">0</strong> / 50 mastered</span>
+                </div>
+                <div class="stat-pill" id="headerStreak">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <span>Streak: <strong id="streakCount">0</strong></span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="mode-nav">
+            <button class="nav-btn active" data-mode="dashboard" aria-label="Dashboard">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                <span>Dashboard</span>
+            </button>
+            <button class="nav-btn" data-mode="learn" aria-label="Learn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                <span>Learn</span>
+            </button>
+            <button class="nav-btn" data-mode="practice" aria-label="Practice">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span>Practice</span>
+            </button>
+            <button class="nav-btn" data-mode="quiz" aria-label="Quiz">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                <span>Quiz</span>
+            </button>
+            <button class="nav-btn" data-mode="speed" aria-label="Speed Run">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                <span>Speed Run</span>
+            </button>
+        </nav>
+
+        <!-- DASHBOARD VIEW -->
+        <section id="dashboard" class="view active">
+            <div class="dashboard-hero">
+                <h2>Master 50 PowerPoint Shortcuts Today</h2>
+                <p>Learn, practice, and test your knowledge with four interactive modes.</p>
+            </div>
+
+            <div class="progress-overview">
+                <div class="progress-ring-container">
+                    <svg class="progress-ring" width="160" height="160">
+                        <circle class="progress-ring-bg" cx="80" cy="80" r="70" fill="none" stroke-width="10"/>
+                        <circle class="progress-ring-fill" id="progressRingFill" cx="80" cy="80" r="70" fill="none" stroke-width="10" stroke-dasharray="439.82" stroke-dashoffset="439.82"/>
+                    </svg>
+                    <div class="progress-ring-text">
+                        <span class="progress-percent" id="progressPercent">0%</span>
+                        <span class="progress-label">Complete</span>
+                    </div>
+                </div>
+                <div class="progress-details">
+                    <div class="detail-row">
+                        <span class="detail-dot new"></span>
+                        <span>New</span>
+                        <strong id="newCount">50</strong>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-dot learning"></span>
+                        <span>Learning</span>
+                        <strong id="learningCount">0</strong>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-dot mastered-dot"></span>
+                        <span>Mastered</span>
+                        <strong id="masteredCountDash">0</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <button class="mode-card" data-launch="learn">
+                    <div class="mode-card-icon learn-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                    </div>
+                    <h3>Learn</h3>
+                    <p>Study shortcuts with interactive flashcards</p>
+                </button>
+                <button class="mode-card" data-launch="practice">
+                    <div class="mode-card-icon practice-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    </div>
+                    <h3>Practice</h3>
+                    <p>Type the correct shortcut from memory</p>
+                </button>
+                <button class="mode-card" data-launch="quiz">
+                    <div class="mode-card-icon quiz-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                    </div>
+                    <h3>Quiz</h3>
+                    <p>Multiple choice to reinforce your memory</p>
+                </button>
+                <button class="mode-card" data-launch="speed">
+                    <div class="mode-card-icon speed-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    </div>
+                    <h3>Speed Run</h3>
+                    <p>Race against the clock — how many can you get?</p>
+                </button>
+            </div>
+
+            <div class="category-filter-section">
+                <h3>Shortcut Categories</h3>
+                <div class="category-chips" id="categoryChips"></div>
+            </div>
+
+            <div class="all-shortcuts-table">
+                <h3>All Shortcuts Reference</h3>
+                <div class="search-bar">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    <input type="text" id="searchInput" placeholder="Search shortcuts...">
+                </div>
+                <div class="table-wrapper">
+                    <table id="shortcutTable">
+                        <thead>
+                            <tr><th>Action</th><th>Shortcut</th><th>Category</th><th>Status</th></tr>
+                        </thead>
+                        <tbody id="shortcutTableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="reset-section">
+                <button class="btn-reset" id="resetProgress">Reset All Progress</button>
+            </div>
+        </section>
+
+        <!-- LEARN VIEW (Flashcards) -->
+        <section id="learn" class="view">
+            <div class="view-header">
+                <h2>Flashcard Study</h2>
+                <p>Click the card to reveal the shortcut. Rate your recall to schedule reviews.</p>
+            </div>
+            <div class="flashcard-area">
+                <div class="flashcard-progress">
+                    <span id="cardProgress">1 / 50</span>
+                    <div class="mini-progress-bar"><div class="mini-progress-fill" id="cardProgressFill"></div></div>
+                </div>
+                <div class="flashcard" id="flashcard">
+                    <div class="flashcard-inner" id="flashcardInner">
+                        <div class="flashcard-front">
+                            <span class="card-label">Action</span>
+                            <h3 id="cardFrontText">Word Wrap</h3>
+                            <span class="card-hint">Click to reveal shortcut</span>
+                        </div>
+                        <div class="flashcard-back">
+                            <span class="card-label">Shortcut</span>
+                            <h3 id="cardBackText">Ctrl+7</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="recall-buttons" id="recallButtons" style="display:none;">
+                    <button class="recall-btn hard" data-recall="hard">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                        Didn't Know
+                    </button>
+                    <button class="recall-btn okay" data-recall="okay">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M8 12h8"/></svg>
+                        Kinda Knew
+                    </button>
+                    <button class="recall-btn easy" data-recall="easy">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        Nailed It
+                    </button>
+                </div>
+                <div class="card-nav">
+                    <button class="btn-secondary" id="prevCard">Previous</button>
+                    <button class="btn-secondary" id="skipCard">Skip</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRACTICE VIEW (Type the shortcut) -->
+        <section id="practice" class="view">
+            <div class="view-header">
+                <h2>Typing Practice</h2>
+                <p>Press the correct key combination for each action shown.</p>
+            </div>
+            <div class="practice-area">
+                <div class="practice-score">
+                    <div class="score-item correct-score">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span id="practiceCorrect">0</span>
+                    </div>
+                    <div class="score-item wrong-score">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                        <span id="practiceWrong">0</span>
+                    </div>
+                </div>
+                <div class="practice-prompt" id="practicePrompt">
+                    <span class="prompt-label">What is the shortcut for:</span>
+                    <h3 id="practiceAction">Word Wrap</h3>
+                </div>
+                <div class="key-input-area">
+                    <div class="key-display" id="keyDisplay">
+                        <span class="key-placeholder">Press the shortcut keys...</span>
+                    </div>
+                </div>
+                <div class="practice-feedback" id="practiceFeedback"></div>
+                <div class="practice-controls">
+                    <button class="btn-secondary" id="showAnswer">Show Answer</button>
+                    <button class="btn-primary" id="nextPractice">Next</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- QUIZ VIEW -->
+        <section id="quiz" class="view">
+            <div class="view-header">
+                <h2>Multiple Choice Quiz</h2>
+                <p>Select the correct shortcut for each action. 10 questions per round.</p>
+            </div>
+            <div class="quiz-area">
+                <div class="quiz-header-bar">
+                    <span class="quiz-progress-text" id="quizProgressText">Question 1 / 10</span>
+                    <span class="quiz-score-text" id="quizScoreText">Score: 0</span>
+                </div>
+                <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="quizProgressFill"></div></div>
+                <div class="quiz-question" id="quizQuestion">
+                    <span class="prompt-label">What is the shortcut for:</span>
+                    <h3 id="quizAction">Word Wrap</h3>
+                </div>
+                <div class="quiz-options" id="quizOptions"></div>
+                <button class="btn-primary quiz-next-btn" id="quizNext" style="display:none;">Next Question</button>
+            </div>
+            <div class="quiz-results" id="quizResults" style="display:none;">
+                <div class="results-card">
+                    <div class="results-icon" id="resultsIcon">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    </div>
+                    <h3 id="resultsTitle">Great Job!</h3>
+                    <p id="resultsSubtitle">You scored 8 out of 10</p>
+                    <div class="results-stats">
+                        <div class="result-stat">
+                            <span class="result-stat-num" id="resultCorrect">8</span>
+                            <span class="result-stat-label">Correct</span>
+                        </div>
+                        <div class="result-stat">
+                            <span class="result-stat-num" id="resultWrong">2</span>
+                            <span class="result-stat-label">Wrong</span>
+                        </div>
+                        <div class="result-stat">
+                            <span class="result-stat-num" id="resultAccuracy">80%</span>
+                            <span class="result-stat-label">Accuracy</span>
+                        </div>
+                    </div>
+                    <div class="results-missed" id="resultsMissed"></div>
+                    <button class="btn-primary" id="retakeQuiz">Take Another Quiz</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SPEED RUN VIEW -->
+        <section id="speed" class="view">
+            <div class="view-header">
+                <h2>Speed Run</h2>
+                <p>60 seconds on the clock. How many shortcuts can you nail?</p>
+            </div>
+            <div class="speed-area">
+                <div class="speed-pre" id="speedPre">
+                    <div class="speed-best">
+                        <span>Best Score</span>
+                        <strong id="bestScore">0</strong>
+                    </div>
+                    <button class="btn-primary btn-large" id="startSpeed">Start Speed Run</button>
+                </div>
+                <div class="speed-game" id="speedGame" style="display:none;">
+                    <div class="speed-hud">
+                        <div class="speed-timer" id="speedTimer">60</div>
+                        <div class="speed-score">Score: <strong id="speedScore">0</strong></div>
+                    </div>
+                    <div class="speed-prompt">
+                        <span class="prompt-label">Shortcut for:</span>
+                        <h3 id="speedAction">Word Wrap</h3>
+                    </div>
+                    <div class="speed-options" id="speedOptions"></div>
+                </div>
+                <div class="speed-results" id="speedResults" style="display:none;">
+                    <div class="results-card">
+                        <h3>Time's Up!</h3>
+                        <div class="speed-final-score">
+                            <span class="big-score" id="speedFinalScore">0</span>
+                            <span>shortcuts nailed</span>
+                        </div>
+                        <p id="speedNewBest" style="display:none;" class="new-best-text">New Personal Best!</p>
+                        <button class="btn-primary" id="retrySpeed">Try Again</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
