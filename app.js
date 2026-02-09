@@ -1,5 +1,5 @@
 /* ======================================
-   POWERPOINT SHORTCUT MASTER — APP JS
+   POWERPOINT MASTER — APP JS
    With animated visual illustrations
    ====================================== */
 

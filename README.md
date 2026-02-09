@@ -1,4 +1,4 @@
-# PowerPoint Shortcut Master
+# PowerPoint Master
 
 An interactive web-based game to learn 50 PowerPoint shortcuts in one day.
 
