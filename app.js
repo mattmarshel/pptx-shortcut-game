@@ -863,6 +863,13 @@ function skipCard() { state.currentCard++; showCard(); }
 function setupPractice() {
     document.getElementById('showAnswer').addEventListener('click', showPracticeAnswer);
     document.getElementById('nextPractice').addEventListener('click', nextPracticeQuestion);
+    document.getElementById('submitTyped').addEventListener('click', handleTypedAnswer);
+    document.getElementById('typeFallback').addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') { e.preventDefault(); handleTypedAnswer(); }
+        e.stopPropagation(); // prevent practice key handler from firing
+    });
+    // Stop keydown events inside the text input from triggering the shortcut listener
+    document.getElementById('typeFallback').addEventListener('keyup', (e) => e.stopPropagation());
 }
 
 function initPractice() {
@@ -890,6 +897,8 @@ function showPracticeQuestion() {
     document.getElementById('keyDisplay').className = 'key-display listening';
     document.getElementById('practiceFeedback').textContent = '';
     document.getElementById('practiceFeedback').className = 'practice-feedback';
+    const fallbackInput = document.getElementById('typeFallback');
+    if (fallbackInput) fallbackInput.value = '';
     state.practiceAnswered = false;
 }
 
@@ -902,6 +911,8 @@ function handlePracticeKey(e) {
     const practiceView = document.getElementById('practice');
     if (!practiceView.classList.contains('active')) return;
     if (state.practiceAnswered) return;
+    // Don't intercept when typing in the fallback text input
+    if (e.target.id === 'typeFallback') return;
     e.preventDefault();
     const parts = [];
     if (e.ctrlKey || e.metaKey) parts.push('Ctrl');
@@ -956,6 +967,34 @@ function showPracticeAnswer() {
     document.getElementById('keyDisplay').className = 'key-display';
     document.getElementById('practiceFeedback').textContent = 'Answer revealed';
     document.getElementById('practiceFeedback').className = 'practice-feedback';
+    state.practiceAnswered = true;
+}
+
+function handleTypedAnswer() {
+    if (state.practiceAnswered) return;
+    const input = document.getElementById('typeFallback');
+    const typed = input.value.trim();
+    if (!typed) return;
+    const q = state.practiceQueue;
+    const idx = state.practiceIndex % q.length;
+    const correct = q[idx].key;
+    const display = document.getElementById('keyDisplay');
+    display.innerHTML = `<span>${typed}</span>`;
+    if (normalizeKey(typed) === normalizeKey(correct)) {
+        display.className = 'key-display correct';
+        document.getElementById('practiceFeedback').textContent = 'Correct!';
+        document.getElementById('practiceFeedback').className = 'practice-feedback correct';
+        state.practiceCorrect++;
+        document.getElementById('practiceCorrect').textContent = state.practiceCorrect;
+        markCorrect(q[idx].title);
+    } else {
+        display.className = 'key-display wrong';
+        document.getElementById('practiceFeedback').innerHTML = `Wrong — the answer is <strong>${correct}</strong>`;
+        document.getElementById('practiceFeedback').className = 'practice-feedback wrong';
+        state.practiceWrong++;
+        document.getElementById('practiceWrong').textContent = state.practiceWrong;
+        markWrong(q[idx].title);
+    }
     state.practiceAnswered = true;
 }
 
