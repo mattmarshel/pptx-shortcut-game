@@ -372,6 +372,12 @@ tbody tr:hover { background:var(--accent-pale); }
 .key-display.correct { border-color:var(--green); box-shadow:0 0 0 3px var(--green-glow); color:var(--green); }
 .key-display.wrong { border-color:var(--red); box-shadow:0 0 0 3px var(--red-glow); color:var(--red); }
 .key-placeholder { color:var(--text-muted); font-size:.9rem; font-weight:400; font-family:'Inter',sans-serif; }
+.type-fallback { margin-top:12px; text-align:center; }
+.type-fallback-label { font-size:.75rem; color:var(--text-muted); display:block; margin-bottom:6px; }
+.type-fallback-row { display:flex; gap:8px; justify-content:center; }
+.type-fallback-row input { flex:1; max-width:220px; padding:8px 12px; border:1px solid var(--border); border-radius:var(--radius-sm); background:var(--surface); font-family:'SF Mono','Fira Code',monospace; font-size:.85rem; font-weight:600; color:var(--text); outline:none; transition:var(--transition); }
+.type-fallback-row input:focus { border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-glow); }
+.type-fallback-row .btn-secondary { padding:8px 16px; font-size:.8rem; }
 .practice-feedback { min-height:28px; margin-bottom:16px; font-size:.9rem; font-weight:600; text-align:center; }
 .practice-feedback.correct { color:var(--green); }
 .practice-feedback.wrong { color:var(--red); }
