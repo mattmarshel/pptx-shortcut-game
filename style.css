@@ -209,7 +209,7 @@ tbody tr:hover { background:var(--accent-pale); }
 .recall-btn { display:flex; align-items:center; gap:8px; padding:12px 24px; border:1px solid var(--border); border-radius:var(--radius-sm); background:var(--surface); color:var(--text); font-size:.85rem; font-weight:600; cursor:pointer; transition:var(--transition); font-family:inherit; }
 .recall-btn.hard:hover { border-color:var(--red); background:var(--red-glow); color:var(--red); }
 .recall-btn.okay:hover { border-color:var(--orange); background:var(--orange-glow); color:var(--orange); }
-.recall-btn.easy:hover { border-color:var(--accent); background:var(--accent-pale); color:var(--accent); }
+.recall-btn.easy:hover { border-color:var(--green); background:var(--green-glow); color:var(--green); }
 .card-nav { display:flex; gap:12px; }
 
 /* ===== VISUAL SCENE (Animated Illustrations) ===== */
