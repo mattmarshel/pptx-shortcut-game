@@ -689,7 +689,8 @@ let state = {
     speedScore: 0,
     speedTimer: null,
     speedTimeLeft: 60,
-    activeCategory: null
+    activeCategory: null,
+    mustHaveOnly: false
 };
 
 // ===== INIT =====
@@ -697,12 +698,35 @@ function init() {
     loadProgress();
     addSVGDefs();
     setupNav();
+    setupMustHaveToggles();
     setupDashboard();
     setupLearn();
     setupPractice();
     setupQuiz();
     setupSpeed();
     updateHeaderStats();
+}
+
+function setupMustHaveToggles() {
+    const ids = ['mustHaveToggleDash', 'mustHaveToggleLearn', 'mustHaveTogglePractice', 'mustHaveToggleQuiz', 'mustHaveToggleSpeed'];
+    ids.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.addEventListener('change', () => toggleMustHaveOnly(el.checked));
+    });
+}
+
+function toggleMustHaveOnly(on) {
+    state.mustHaveOnly = on;
+    // Sync all toggle checkboxes
+    ['mustHaveToggleDash', 'mustHaveToggleLearn', 'mustHaveTogglePractice', 'mustHaveToggleQuiz', 'mustHaveToggleSpeed'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.checked = on;
+    });
+    // Refresh current view
+    renderCategoryChips();
+    renderShortcutTable();
+    initLearnDeck();
+    showPracticeQuestion();
 }
 
 function addSVGDefs() {
@@ -773,8 +797,10 @@ function shuffle(arr) {
 }
 
 function getFilteredShortcuts() {
-    if (!state.activeCategory) return [...SHORTCUTS];
-    return SHORTCUTS.filter(s => s.category === state.activeCategory);
+    let list = [...SHORTCUTS];
+    if (state.mustHaveOnly) list = list.filter(s => s.mustHave);
+    if (state.activeCategory) list = list.filter(s => s.category === state.activeCategory);
+    return list;
 }
 
 function getMasteredCount() { return Object.values(state.progress).filter(p => p.status === 'mastered').length; }
@@ -853,13 +879,15 @@ function updateProgressRing() {
 function renderCategoryChips() {
     const container = document.getElementById('categoryChips');
     container.innerHTML = '';
+    const base = state.mustHaveOnly ? SHORTCUTS.filter(s => s.mustHave) : SHORTCUTS;
     const allChip = document.createElement('button');
     allChip.className = 'category-chip' + (!state.activeCategory ? ' active' : '');
-    allChip.textContent = `All (${SHORTCUTS.length})`;
+    allChip.textContent = `All (${base.length})`;
     allChip.addEventListener('click', () => { state.activeCategory = null; renderCategoryChips(); renderShortcutTable(); });
     container.appendChild(allChip);
     CATEGORIES.forEach(cat => {
-        const count = SHORTCUTS.filter(s => s.category === cat).length;
+        const count = base.filter(s => s.category === cat).length;
+        if (count === 0) return;
         const chip = document.createElement('button');
         chip.className = 'category-chip' + (state.activeCategory === cat ? ' active' : '');
         chip.textContent = `${cat} (${count})`;
