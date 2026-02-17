@@ -54,7 +54,9 @@ const SHORTCUTS = [
     { title: "Bring to Front", key: "Alt+Shift+]", category: "Ordering" },
     { title: "Bring Forward", key: "Alt+]", category: "Ordering" },
     { title: "Send to Back", key: "Alt+Shift+[", category: "Ordering" },
-    { title: "Send Backward", key: "Alt+[", category: "Ordering" }
+    { title: "Send Backward", key: "Alt+[", category: "Ordering" },
+    { title: "Shuffle Text Line Up", key: "Alt+Shift+Up Arrow", category: "Formatting" },
+    { title: "Shuffle Text Line Down", key: "Alt+Shift+Down Arrow", category: "Formatting" }
 ];
 
 const CATEGORIES = [...new Set(SHORTCUTS.map(s => s.category))];
@@ -450,7 +452,25 @@ const VISUALS = {
     "Bring to Front": () => makeOrderVisual('front'),
     "Bring Forward": () => makeOrderVisual('forward'),
     "Send to Back": () => makeOrderVisual('back'),
-    "Send Backward": () => makeOrderVisual('backward')
+    "Send Backward": () => makeOrderVisual('backward'),
+
+    "Shuffle Text Line Up": () => `<div class="vis">${visTitleBar('Formatting')}
+        <div class="vis-canvas" style="padding:8px 15px">
+            <div style="font-size:6.5px;color:#333;margin-bottom:4px;padding:3px 6px;background:#f5f5f5;border-radius:2px">First line of text</div>
+            <div style="font-size:6.5px;color:white;margin-bottom:4px;padding:3px 6px;background:#B7472A;border-radius:2px;font-weight:600;animation:shuffleUp 4s ease-in-out infinite">Second line moves up</div>
+            <div style="font-size:6.5px;color:#333;margin-bottom:4px;padding:3px 6px;background:#f5f5f5;border-radius:2px">Third line of text</div>
+            <div style="position:absolute;right:15px;top:50%;transform:translateY(-50%);font-size:16px;color:#B7472A;animation:visPulse 4s ease-in-out infinite">&#8593;</div>
+            <span class="vis-label">SHUFFLE UP</span>
+        </div></div>`,
+
+    "Shuffle Text Line Down": () => `<div class="vis">${visTitleBar('Formatting')}
+        <div class="vis-canvas" style="padding:8px 15px">
+            <div style="font-size:6.5px;color:#333;margin-bottom:4px;padding:3px 6px;background:#f5f5f5;border-radius:2px">First line of text</div>
+            <div style="font-size:6.5px;color:white;margin-bottom:4px;padding:3px 6px;background:#B7472A;border-radius:2px;font-weight:600;animation:shuffleDown 4s ease-in-out infinite">Second line moves down</div>
+            <div style="font-size:6.5px;color:#333;margin-bottom:4px;padding:3px 6px;background:#f5f5f5;border-radius:2px">Third line of text</div>
+            <div style="position:absolute;right:15px;top:50%;transform:translateY(-50%);font-size:16px;color:#B7472A;animation:visPulse 4s ease-in-out infinite">&#8595;</div>
+            <span class="vis-label">SHUFFLE DOWN</span>
+        </div></div>`
 };
 
 // ===== VISUAL HELPER GENERATORS =====

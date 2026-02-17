@@ -327,6 +327,16 @@ tbody tr:hover { background:var(--accent-pale); }
     0%,40% { line-height:1.4; }
     50%,100% { line-height:2.4; }
 }
+@keyframes shuffleUp {
+    0%,35% { transform:translateY(0); }
+    50%,85% { transform:translateY(-22px); }
+    100% { transform:translateY(0); }
+}
+@keyframes shuffleDown {
+    0%,35% { transform:translateY(0); }
+    50%,85% { transform:translateY(22px); }
+    100% { transform:translateY(0); }
+}
 
 /* --- View --- */
 @keyframes zoomFit {
