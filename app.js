@@ -42,8 +42,8 @@ const SHORTCUTS = [
     { title: "Change Font Size", key: "Ctrl+Shift+O", category: "Formatting" },
     { title: "Group", key: "Ctrl+G", category: "Alignment" },
     { title: "Ungroup", key: "Ctrl+Shift+G", category: "Alignment" },
-    { title: "Pickup Style", key: "Ctrl+Shift+C", category: "Formatting" },
-    { title: "Apply Style", key: "Ctrl+Shift+V", category: "Formatting" },
+    { title: "Copy Style", key: "Ctrl+Shift+C", category: "Formatting" },
+    { title: "Paste Style", key: "Ctrl+Shift+V", category: "Formatting" },
     { title: "Green Print", key: "Ctrl+Alt+P", category: "Print" },
     { title: "Green Print Two Slides", key: "Ctrl+Alt+2", category: "Print" },
     { title: "Green Print Four Slides", key: "Ctrl+Alt+4", category: "Print" },
@@ -384,7 +384,7 @@ const VISUALS = {
             <span class="vis-label">UNGROUP</span>
         </div></div>`,
 
-    "Pickup Style": () => `<div class="vis">${visTitleBar('Formatting')}
+    "Copy Style": () => `<div class="vis">${visTitleBar('Formatting')}
         <div class="vis-canvas">
             <div style="position:absolute;left:20px;top:20px;width:55px;height:40px;background:#D4532F;border:2px solid #8B2F1A;border-radius:4px;display:flex;align-items:center;justify-content:center;animation:stylePickup 4s ease-in-out infinite">
                 <span style="font-size:7px;color:white;font-weight:700">Styled</span>
@@ -394,7 +394,7 @@ const VISUALS = {
             <span class="vis-label">PICKUP</span>
         </div></div>`,
 
-    "Apply Style": () => `<div class="vis">${visTitleBar('Formatting')}
+    "Paste Style": () => `<div class="vis">${visTitleBar('Formatting')}
         <div class="vis-canvas">
             <div style="position:absolute;left:20px;top:25px;width:45px;height:35px;background:#D4532F;border:2px solid #8B2F1A;border-radius:4px;font-size:6px;color:white;display:flex;align-items:center;justify-content:center;font-weight:700">Source</div>
             <div style="position:absolute;left:50%;top:38px;transform:translateX(-50%);font-size:12px;color:#B7472A">&#10140;</div>
