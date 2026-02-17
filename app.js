@@ -35,7 +35,7 @@ const SHORTCUTS = [
     { title: "Distribute Vertically", key: "Alt+Shift+V", category: "Alignment" },
     { title: "Distribute Horizontally", key: "Alt+Shift+H", category: "Alignment" },
     { title: "Paste Unformatted Text", key: "Ctrl+Alt+T", category: "Formatting" },
-    { title: "Shape to Text Box", key: "Ctrl+Shift+W", category: "Shapes" },
+    { title: "Resize Shape to Fit Text", key: "Ctrl+8", altKey: "Ctrl+Shift+W", category: "Shapes" },
     { title: "Apply Default Text Format", key: "Ctrl+Space", category: "Formatting" },
     { title: "Cycle Accent Colors", key: "Alt+Shift+A", category: "Formatting" },
     { title: "Insert New Slide", key: "Ctrl+M", category: "Insert" },
@@ -313,15 +313,14 @@ const VISUALS = {
             <span class="vis-label">UNFORMATTED</span>
         </div></div>`,
 
-    "Shape to Text Box": () => `<div class="vis">${visTitleBar('Shapes')}
+    "Resize Shape to Fit Text": () => `<div class="vis">${visTitleBar('Shapes')}
         <div class="vis-canvas">
-            <div style="position:absolute;left:20px;top:18px;width:55px;height:55px;background:#FDEAE6;border:2px solid #D4532F;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:7px;color:#B7472A">Shape</div>
-            <div style="position:absolute;left:50%;top:42px;transform:translateX(-50%);font-size:14px;color:#B7472A">&#10140;</div>
-            <div style="position:absolute;right:20px;top:22px;width:70px;height:30px;background:white;border:2px solid #999;border-radius:3px;display:flex;align-items:center;padding-left:6px;animation:insertAppear 4s ease-in-out infinite">
-                <div style="width:1px;height:14px;background:#333;animation:visPulse 1s ease infinite"></div>
-                <span style="font-size:6px;color:#aaa;margin-left:3px">Text Box</span>
-            </div>
-            <span class="vis-label">SHAPE &rarr; TEXT</span>
+            <div style="position:absolute;left:15px;top:15px;width:70px;height:70px;background:#FDEAE6;border:2px solid #D4532F;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:6px;color:#B7472A;padding:4px;text-align:center;animation:shapeToText 4s ease-in-out infinite">Resize to fit</div>
+            <div style="position:absolute;left:50%;top:48px;transform:translateX(-50%);font-size:14px;color:#B7472A">&#10140;</div>
+            <div style="position:absolute;right:15px;top:25px;width:70px;height:35px;background:#FDEAE6;border:2px solid #D4532F;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:6px;color:#B7472A;padding:4px;text-align:center;animation:insertAppear 4s ease-in-out infinite">Resize to fit</div>
+            <div style="position:absolute;left:15px;top:88px;font-size:5px;color:#888;text-align:center;width:70px">Before</div>
+            <div style="position:absolute;right:15px;top:65px;font-size:5px;color:#888;text-align:center;width:70px">After</div>
+            <span class="vis-label">RESIZE FIT</span>
         </div></div>`,
 
     "Apply Default Text Format": () => `<div class="vis">${visTitleBar('Formatting')}
@@ -933,22 +932,23 @@ function handlePracticeKey(e) {
     display.innerHTML = `<span>${pressed}</span>`;
     const q = state.practiceQueue;
     const idx = state.practiceIndex % q.length;
-    const correct = q[idx].key;
-    if (normalizeKey(pressed) === normalizeKey(correct)) {
+    const shortcut = q[idx];
+    if (keyMatches(pressed, shortcut)) {
         display.className = 'key-display correct';
         document.getElementById('practiceFeedback').textContent = 'Correct!';
         document.getElementById('practiceFeedback').className = 'practice-feedback correct';
         state.practiceCorrect++;
         document.getElementById('practiceCorrect').textContent = state.practiceCorrect;
-        markCorrect(q[idx].title);
+        markCorrect(shortcut.title);
         state.practiceAnswered = true;
     } else {
         display.className = 'key-display wrong';
-        document.getElementById('practiceFeedback').innerHTML = `Wrong — the answer is <strong>${correct}</strong>`;
+        const hint = shortcut.altKey ? `<strong>${shortcut.key}</strong> or <strong>${shortcut.altKey}</strong>` : `<strong>${shortcut.key}</strong>`;
+        document.getElementById('practiceFeedback').innerHTML = `Wrong — the answer is ${hint}`;
         document.getElementById('practiceFeedback').className = 'practice-feedback wrong';
         state.practiceWrong++;
         document.getElementById('practiceWrong').textContent = state.practiceWrong;
-        markWrong(q[idx].title);
+        markWrong(shortcut.title);
         state.practiceAnswered = true;
     }
 }
@@ -959,11 +959,19 @@ function normalizeKey(k) {
         .replace('arrowup', 'uparrow').replace('arrowdown', 'downarrow');
 }
 
+function keyMatches(pressed, shortcut) {
+    const norm = normalizeKey(pressed);
+    if (norm === normalizeKey(shortcut.key)) return true;
+    if (shortcut.altKey && norm === normalizeKey(shortcut.altKey)) return true;
+    return false;
+}
+
 function showPracticeAnswer() {
     const q = state.practiceQueue;
     const idx = state.practiceIndex % q.length;
-    const correct = q[idx].key;
-    document.getElementById('keyDisplay').innerHTML = `<span style="color:var(--accent)">${correct}</span>`;
+    const shortcut = q[idx];
+    const answer = shortcut.altKey ? `${shortcut.key} or ${shortcut.altKey}` : shortcut.key;
+    document.getElementById('keyDisplay').innerHTML = `<span style="color:var(--accent)">${answer}</span>`;
     document.getElementById('keyDisplay').className = 'key-display';
     document.getElementById('practiceFeedback').textContent = 'Answer revealed';
     document.getElementById('practiceFeedback').className = 'practice-feedback';
@@ -977,23 +985,24 @@ function handleTypedAnswer() {
     if (!typed) return;
     const q = state.practiceQueue;
     const idx = state.practiceIndex % q.length;
-    const correct = q[idx].key;
+    const shortcut = q[idx];
     const display = document.getElementById('keyDisplay');
     display.innerHTML = `<span>${typed}</span>`;
-    if (normalizeKey(typed) === normalizeKey(correct)) {
+    if (keyMatches(typed, shortcut)) {
         display.className = 'key-display correct';
         document.getElementById('practiceFeedback').textContent = 'Correct!';
         document.getElementById('practiceFeedback').className = 'practice-feedback correct';
         state.practiceCorrect++;
         document.getElementById('practiceCorrect').textContent = state.practiceCorrect;
-        markCorrect(q[idx].title);
+        markCorrect(shortcut.title);
     } else {
         display.className = 'key-display wrong';
-        document.getElementById('practiceFeedback').innerHTML = `Wrong — the answer is <strong>${correct}</strong>`;
+        const hint = shortcut.altKey ? `<strong>${shortcut.key}</strong> or <strong>${shortcut.altKey}</strong>` : `<strong>${shortcut.key}</strong>`;
+        document.getElementById('practiceFeedback').innerHTML = `Wrong — the answer is ${hint}`;
         document.getElementById('practiceFeedback').className = 'practice-feedback wrong';
         state.practiceWrong++;
         document.getElementById('practiceWrong').textContent = state.practiceWrong;
-        markWrong(q[idx].title);
+        markWrong(shortcut.title);
     }
     state.practiceAnswered = true;
 }
