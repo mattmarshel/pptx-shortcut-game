@@ -342,6 +342,17 @@ tbody tr:hover { background:var(--accent-pale); }
     100% { transform:translateY(0); }
 }
 
+/* --- Mouse --- */
+@keyframes selectMarquee {
+    0%,30% { opacity:.3; transform:scale(.6); }
+    50%,80% { opacity:.8; transform:scale(1); }
+    100% { opacity:.3; transform:scale(.6); }
+}
+@keyframes constrainedMove {
+    0%,40% { transform:translateX(0); }
+    50%,100% { transform:translateX(80px); }
+}
+
 /* --- View --- */
 @keyframes zoomFit {
     0%,35% { transform:scale(.5); }

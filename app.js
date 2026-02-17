@@ -59,7 +59,12 @@ const SHORTCUTS = [
     { title: "Shuffle Text Line Down", key: "Alt+Shift+Down Arrow", category: "Formatting" },
     { title: "Increase Font Size", key: "Ctrl+Shift+>", category: "Formatting" },
     { title: "Decrease Font Size", key: "Ctrl+Shift+<", category: "Formatting" },
-    { title: "Jump Between Objects", key: "Alt+Any Arrow Key", acceptKeys: ["Alt+Left Arrow", "Alt+Right Arrow", "Alt+Up Arrow", "Alt+Down Arrow"], category: "Navigation" }
+    { title: "Jump Between Objects", key: "Alt+Any Arrow Key", acceptKeys: ["Alt+Left Arrow", "Alt+Right Arrow", "Alt+Up Arrow", "Alt+Down Arrow"], category: "Navigation" },
+    { title: "Select Multiple Objects", key: "Click+Drag / Shift+Click", acceptKeys: ["Click+Drag", "Shift+Click"], category: "Mouse" },
+    { title: "Move Horizontally / Vertically", key: "Shift+Drag", category: "Mouse" },
+    { title: "Copy Object", key: "Ctrl+Drag", category: "Mouse" },
+    { title: "Copy + Move Horizontally / Vertically", key: "Ctrl+Shift+Drag", category: "Mouse" },
+    { title: "Zoom In / Out", key: "Ctrl+Scroll", category: "Mouse" }
 ];
 
 const CATEGORIES = [...new Set(SHORTCUTS.map(s => s.category))];
@@ -497,6 +502,52 @@ const VISUALS = {
             <div style="position:absolute;left:100px;top:60px;width:30px;height:30px;background:#7B1FA2;border-radius:50%"></div>
             <div style="position:absolute;left:55px;top:38px;font-size:10px;color:#B7472A;animation:visPulse 2s ease infinite">&#8592; &#8593; &#8595; &#8594;</div>
             <span class="vis-label">JUMP OBJECT</span>
+        </div></div>`,
+
+    "Select Multiple Objects": () => `<div class="vis">${visTitleBar('Mouse')}
+        <div class="vis-canvas">
+            <div style="position:absolute;left:15px;top:15px;width:35px;height:30px;background:#D4532F;border-radius:3px;border:2px dashed #8B2F1A"></div>
+            <div style="position:absolute;left:65px;top:20px;width:30px;height:30px;background:#1565C0;border-radius:50%;border:2px dashed #0D47A1"></div>
+            <div style="position:absolute;left:110px;top:15px;width:40px;height:28px;background:#7B1FA2;border-radius:3px;border:2px dashed #4A148C"></div>
+            <div style="position:absolute;left:10px;top:10px;width:148px;height:42px;border:1.5px dashed #B7472A;border-radius:2px;animation:selectMarquee 4s ease-in-out infinite;opacity:.6"></div>
+            <div style="position:absolute;left:60px;top:65px;font-size:7px;color:#B7472A;font-weight:600">&#128433; Click+Drag / Shift+Click</div>
+            <span class="vis-label">MULTI-SELECT</span>
+        </div></div>`,
+
+    "Move Horizontally / Vertically": () => `<div class="vis">${visTitleBar('Mouse')}
+        <div class="vis-canvas">
+            <div style="position:absolute;left:25px;top:30px;width:40px;height:30px;background:#D4532F;border-radius:3px;animation:constrainedMove 4s ease-in-out infinite"></div>
+            <div style="position:absolute;left:25px;top:30px;width:40px;height:30px;border:1.5px dashed #ccc;border-radius:3px"></div>
+            <div style="position:absolute;right:20px;top:30px;font-size:7px;color:#888;line-height:1.6">Shift + Drag<br>&#8596; horizontal<br>&#8597; vertical</div>
+            <span class="vis-label">CONSTRAINED</span>
+        </div></div>`,
+
+    "Copy Object": () => `<div class="vis">${visTitleBar('Mouse')}
+        <div class="vis-canvas">
+            <div style="position:absolute;left:20px;top:25px;width:40px;height:35px;background:#D4532F;border-radius:3px;opacity:.4"></div>
+            <div style="position:absolute;left:70px;top:30px;width:40px;height:35px;background:#D4532F;border-radius:3px;animation:visPulse 4s ease-in-out infinite"></div>
+            <div style="position:absolute;left:48px;top:35px;font-size:14px;color:#B7472A">&#8594;</div>
+            <div style="position:absolute;right:15px;top:25px;font-size:7px;color:#888;line-height:1.6">Ctrl + Drag<br>to duplicate</div>
+            <div style="position:absolute;left:75px;top:68px;font-size:8px;color:#B7472A;font-weight:600">+</div>
+            <span class="vis-label">CTRL+DRAG COPY</span>
+        </div></div>`,
+
+    "Copy + Move Horizontally / Vertically": () => `<div class="vis">${visTitleBar('Mouse')}
+        <div class="vis-canvas">
+            <div style="position:absolute;left:15px;top:28px;width:35px;height:28px;background:#D4532F;border-radius:3px;opacity:.4"></div>
+            <div style="position:absolute;left:70px;top:28px;width:35px;height:28px;background:#D4532F;border-radius:3px;animation:visPulse 4s ease-in-out infinite"></div>
+            <div style="position:absolute;left:40px;top:32px;font-size:12px;color:#B7472A">&#8594;+</div>
+            <div style="position:absolute;left:70px;top:60px;font-size:6.5px;color:#888;text-align:center">Copy &amp; constrain</div>
+            <div style="position:absolute;right:12px;top:22px;font-size:6.5px;color:#B7472A;font-weight:600;line-height:1.5">Ctrl+Shift<br>+Drag</div>
+            <span class="vis-label">COPY + CONSTRAIN</span>
+        </div></div>`,
+
+    "Zoom In / Out": () => `<div class="vis">${visTitleBar('Mouse')}
+        <div class="vis-canvas" style="display:flex;align-items:center;justify-content:center">
+            <div style="animation:fontGrow 4s ease-in-out infinite;font-size:12px;color:#333">&#128269;</div>
+            <div style="position:absolute;right:15px;top:20px;font-size:7px;color:#888;line-height:1.6;text-align:right">Ctrl + Scroll &#8593;<br>Ctrl + Scroll &#8595;</div>
+            <div style="position:absolute;left:50%;bottom:18px;transform:translateX(-50%);font-size:7px;color:#B7472A;font-weight:600">+ / &minus;</div>
+            <span class="vis-label">ZOOM</span>
         </div></div>`
 };
 
