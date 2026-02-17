@@ -8,7 +8,7 @@ const SHORTCUTS = [
     { title: "Wrap Text", key: "Ctrl+7", category: "Formatting" },
     { title: "Do Not Wrap Text", key: "Ctrl+Shift+7", category: "Formatting" },
     { title: "Quick Keys", key: "Ctrl+Alt+Q", category: "Tools" },
-    { title: "Toggle Shape State", key: "Ctrl+T", category: "Shapes" },
+    { title: "Toggle Moons, Shapes and Flows", key: "Ctrl+T", category: "Shapes" },
     { title: "Make Same Size", key: "Alt+Z", category: "Alignment" },
     { title: "Make Same Height", key: "Ctrl+Shift+E", category: "Alignment" },
     { title: "Make Same Width", key: "Ctrl+Alt+E", category: "Alignment" },
@@ -58,7 +58,8 @@ const SHORTCUTS = [
     { title: "Shuffle Text Line Up", key: "Alt+Shift+Up Arrow", category: "Formatting" },
     { title: "Shuffle Text Line Down", key: "Alt+Shift+Down Arrow", category: "Formatting" },
     { title: "Increase Font Size", key: "Ctrl+Shift+>", category: "Formatting" },
-    { title: "Decrease Font Size", key: "Ctrl+Shift+<", category: "Formatting" }
+    { title: "Decrease Font Size", key: "Ctrl+Shift+<", category: "Formatting" },
+    { title: "Jump Between Objects", key: "Alt+Any Arrow Key", acceptKeys: ["Alt+Left Arrow", "Alt+Right Arrow", "Alt+Up Arrow", "Alt+Down Arrow"], category: "Navigation" }
 ];
 
 const CATEGORIES = [...new Set(SHORTCUTS.map(s => s.category))];
@@ -106,14 +107,14 @@ const VISUALS = {
             <span class="vis-label">QUICK KEYS</span>
         </div></div>`,
 
-    "Toggle Shape State": () => `<div class="vis">${visTitleBar('Shapes')}
+    "Toggle Moons, Shapes and Flows": () => `<div class="vis">${visTitleBar('Shapes')}
         <div class="vis-canvas">
             <div style="position:absolute;left:35px;top:25px;width:50px;height:50px;animation:shapeToggle 4s ease-in-out infinite"></div>
             <div style="position:absolute;left:35px;top:85px;font-size:6px;color:#888;text-align:center;width:50px">Before</div>
             <div style="position:absolute;right:45px;top:25px;width:50px;height:50px;border-radius:50%;background:#1565C0"></div>
             <div style="position:absolute;right:32px;top:85px;font-size:6px;color:#888;text-align:center;width:50px">After</div>
             <div style="position:absolute;left:50%;top:48px;transform:translateX(-50%);font-size:14px;color:#B7472A">&#8644;</div>
-            <span class="vis-label">TOGGLE STATE</span>
+            <span class="vis-label">TOGGLE</span>
         </div></div>`,
 
     "Make Same Size": () => `<div class="vis">${visTitleBar('Alignment')}
@@ -486,6 +487,16 @@ const VISUALS = {
             <div style="animation:fontShrink 4s ease-in-out infinite;color:#B7472A;font-weight:700;font-family:Inter,sans-serif">A</div>
             <div style="position:absolute;right:20px;top:50%;transform:translateY(-50%);font-size:18px;color:#B7472A;animation:visPulse 4s ease-in-out infinite">&#8600;</div>
             <span class="vis-label">SIZE -</span>
+        </div></div>`,
+
+    "Jump Between Objects": () => `<div class="vis">${visTitleBar('Navigation')}
+        <div class="vis-canvas">
+            <div style="position:absolute;left:20px;top:20px;width:35px;height:28px;background:#D4532F;border-radius:3px;border:2px solid #8B2F1A;animation:visPulse 4s ease-in-out infinite"></div>
+            <div style="position:absolute;left:80px;top:15px;width:40px;height:35px;background:#1565C0;border-radius:3px"></div>
+            <div style="position:absolute;left:35px;top:65px;width:45px;height:25px;background:#E65100;border-radius:3px"></div>
+            <div style="position:absolute;left:100px;top:60px;width:30px;height:30px;background:#7B1FA2;border-radius:50%"></div>
+            <div style="position:absolute;left:55px;top:38px;font-size:10px;color:#B7472A;animation:visPulse 2s ease infinite">&#8592; &#8593; &#8595; &#8594;</div>
+            <span class="vis-label">JUMP OBJECT</span>
         </div></div>`
 };
 
@@ -999,6 +1010,11 @@ function keyMatches(pressed, shortcut) {
     const norm = normalizeKey(pressed);
     if (norm === normalizeKey(shortcut.key)) return true;
     if (shortcut.altKey && norm === normalizeKey(shortcut.altKey)) return true;
+    if (shortcut.acceptKeys) {
+        for (const k of shortcut.acceptKeys) {
+            if (norm === normalizeKey(k)) return true;
+        }
+    }
     return false;
 }
 
