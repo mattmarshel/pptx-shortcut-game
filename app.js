@@ -5,8 +5,8 @@
 
 // ===== SHORTCUT DATA =====
 const SHORTCUTS = [
-    { title: "Word Wrap", key: "Ctrl+7", category: "Formatting" },
-    { title: "Do Not Word Wrap", key: "Ctrl+Shift+7", category: "Formatting" },
+    { title: "Wrap Text", key: "Ctrl+7", category: "Formatting" },
+    { title: "Do Not Wrap Text", key: "Ctrl+Shift+7", category: "Formatting" },
     { title: "Quick Keys", key: "Ctrl+Alt+Q", category: "Tools" },
     { title: "Toggle Shape State", key: "Ctrl+T", category: "Shapes" },
     { title: "Make Same Size", key: "Alt+Z", category: "Alignment" },
@@ -67,7 +67,7 @@ function visTitleBar(label) {
 }
 
 const VISUALS = {
-    "Word Wrap": () => `<div class="vis">${visTitleBar('Formatting')}
+    "Wrap Text": () => `<div class="vis">${visTitleBar('Formatting')}
         <div class="vis-canvas">
             <div style="position:absolute;left:15px;top:12px;width:90px;height:55px;border:1.5px solid #F5C4BB;border-radius:3px;background:#FFF5F3"></div>
             <div style="position:absolute;left:20px;top:18px;font-size:6.5px;color:#333;font-family:Inter,sans-serif;animation:wrapText 4s ease-in-out infinite">
@@ -78,7 +78,7 @@ const VISUALS = {
             <span class="vis-label">BEFORE &rarr; AFTER</span>
         </div></div>`,
 
-    "Do Not Word Wrap": () => `<div class="vis">${visTitleBar('Formatting')}
+    "Do Not Wrap Text": () => `<div class="vis">${visTitleBar('Formatting')}
         <div class="vis-canvas">
             <div style="position:absolute;left:15px;top:12px;width:90px;height:55px;border:1.5px solid #FFCDD2;border-radius:3px;background:#FFF5F5;overflow:hidden"></div>
             <div style="position:absolute;left:20px;top:18px;font-size:6.5px;color:#333;font-family:Inter,sans-serif;animation:unwrapText 4s ease-in-out infinite">
