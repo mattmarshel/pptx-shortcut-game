@@ -26,8 +26,8 @@ const SHORTCUTS = [
     { title: "Insert Legend", key: "Ctrl+Alt+L", category: "Insert" },
     { title: "Reset Fixed Elements", key: "Ctrl+Alt+R", category: "Tools" },
     { title: "Split/Join Textboxes", key: "Ctrl+Alt+J", category: "Tools" },
-    { title: "Align Middle", key: "Ctrl+Alt+M", category: "Alignment" },
-    { title: "Align Center", key: "Ctrl+Alt+C", category: "Alignment" },
+    { title: "Align Vertically", key: "Ctrl+Alt+M", category: "Alignment" },
+    { title: "Align Horizontally", key: "Ctrl+Alt+C", category: "Alignment" },
     { title: "Align Left", key: "Ctrl+Alt+Left Arrow", category: "Alignment" },
     { title: "Align Right", key: "Ctrl+Alt+Right Arrow", category: "Alignment" },
     { title: "Align Top", key: "Ctrl+Alt+Up Arrow", category: "Alignment" },
@@ -278,8 +278,8 @@ const VISUALS = {
             <span class="vis-label">SPLIT / JOIN</span>
         </div></div>`,
 
-    "Align Middle": () => makeAlignVisual('middle'),
-    "Align Center": () => makeAlignVisual('center'),
+    "Align Vertically": () => makeAlignVisual('middle'),
+    "Align Horizontally": () => makeAlignVisual('center'),
     "Align Left": () => makeAlignVisual('left'),
     "Align Right": () => makeAlignVisual('right'),
     "Align Top": () => makeAlignVisual('top'),
@@ -487,7 +487,7 @@ function makeAlignVisual(direction) {
             break;
         case 'center':
             anim = starts.map((s, i) => `position:absolute;left:${s.x}px;top:${s.y}px;width:${shapes[i].w}px;height:${shapes[i].h}px;background:${shapes[i].color};border-radius:3px;animation:alignCX 4s ease-in-out infinite;--from-x:${s.x}px`);
-            label = 'ALIGN CENTER'; arrow = '&#8596;';
+            label = 'ALIGN HORIZ'; arrow = '&#8596;';
             break;
         case 'top':
             anim = starts.map((s, i) => `position:absolute;left:${s.x}px;top:${s.y}px;width:${shapes[i].w}px;height:${shapes[i].h}px;background:${shapes[i].color};border-radius:3px;animation:alignT 4s ease-in-out infinite;--from-y:${s.y}px`);
@@ -502,7 +502,7 @@ function makeAlignVisual(direction) {
             break;
         case 'middle':
             anim = starts.map((s, i) => `position:absolute;left:${s.x}px;top:${s.y}px;width:${shapes[i].w}px;height:${shapes[i].h}px;background:${shapes[i].color};border-radius:3px;animation:alignMY 4s ease-in-out infinite;--from-y:${s.y}px`);
-            label = 'ALIGN MIDDLE'; arrow = '&#8597;';
+            label = 'ALIGN VERT'; arrow = '&#8597;';
             break;
     }
 
