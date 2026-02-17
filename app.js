@@ -5,14 +5,14 @@
 
 // ===== SHORTCUT DATA =====
 const SHORTCUTS = [
-    { title: "Word Wrap", key: "Ctrl+7", category: "Formatting" },
-    { title: "Do Not Word Wrap", key: "Ctrl+Shift+7", category: "Formatting" },
+    { title: "Wrap Text", key: "Ctrl+7", category: "Formatting" },
+    { title: "Do Not Wrap Text", key: "Ctrl+Shift+7", category: "Formatting" },
     { title: "Quick Keys", key: "Ctrl+Alt+Q", category: "Tools" },
-    { title: "Toggle Shape State", key: "Ctrl+T", category: "Shapes" },
-    { title: "Make Same Size", key: "Alt+Z", category: "Alignment" },
+    { title: "Toggle Moons, Shapes and Flows (e.g. Cycle Harvey Ball states)", key: "Ctrl+T", category: "Shapes", mustHave: true },
+    { title: "Make Same Size", key: "Alt+Z", category: "Alignment", mustHave: true },
     { title: "Make Same Height", key: "Ctrl+Shift+E", category: "Alignment" },
     { title: "Make Same Width", key: "Ctrl+Alt+E", category: "Alignment" },
-    { title: "Insert Textbox", key: "Alt+Q", category: "Insert" },
+    { title: "Insert Textbox", key: "Alt+Q", category: "Insert", mustHave: true },
     { title: "Text to Autoshape", key: "Alt+Shift+Z", category: "Shapes" },
     { title: "Align and Group", key: "Alt+G", category: "Alignment" },
     { title: "Copy Position", key: "Ctrl+1", category: "Position" },
@@ -21,40 +21,50 @@ const SHORTCUTS = [
     { title: "Slide Sorter View", key: "Ctrl+4", category: "View" },
     { title: "Fit to Window", key: "Ctrl+5", category: "View" },
     { title: "Insert Flag", key: "Ctrl+6", category: "Insert" },
-    { title: "Insert Yellow Sticky", key: "Ctrl+0", category: "Insert" },
+    { title: "Insert Sticky Note", key: "Ctrl+0", category: "Insert", mustHave: true },
     { title: "Insert Sticker", key: "Ctrl+Alt+S", category: "Insert" },
     { title: "Insert Legend", key: "Ctrl+Alt+L", category: "Insert" },
     { title: "Reset Fixed Elements", key: "Ctrl+Alt+R", category: "Tools" },
     { title: "Split/Join Textboxes", key: "Ctrl+Alt+J", category: "Tools" },
-    { title: "Align Middle", key: "Ctrl+Alt+M", category: "Alignment" },
-    { title: "Align Center", key: "Ctrl+Alt+C", category: "Alignment" },
-    { title: "Align Left", key: "Ctrl+Alt+Left Arrow", category: "Alignment" },
-    { title: "Align Right", key: "Ctrl+Alt+Right Arrow", category: "Alignment" },
-    { title: "Align Top", key: "Ctrl+Alt+Up Arrow", category: "Alignment" },
-    { title: "Align Bottom", key: "Ctrl+Alt+Down Arrow", category: "Alignment" },
-    { title: "Distribute Vertically", key: "Alt+Shift+V", category: "Alignment" },
-    { title: "Distribute Horizontally", key: "Alt+Shift+H", category: "Alignment" },
-    { title: "Paste Unformatted Text", key: "Ctrl+Alt+T", category: "Formatting" },
-    { title: "Shape to Text Box", key: "Ctrl+Shift+W", category: "Shapes" },
+    { title: "Align Vertically", key: "Ctrl+Alt+M", category: "Alignment" },
+    { title: "Align Horizontally", key: "Ctrl+Alt+C", category: "Alignment" },
+    { title: "Align Left", key: "Ctrl+Alt+Left Arrow", category: "Alignment", mustHave: true },
+    { title: "Align Right", key: "Ctrl+Alt+Right Arrow", category: "Alignment", mustHave: true },
+    { title: "Align Top", key: "Ctrl+Alt+Up Arrow", category: "Alignment", mustHave: true },
+    { title: "Align Bottom", key: "Ctrl+Alt+Down Arrow", category: "Alignment", mustHave: true },
+    { title: "Distribute Vertically", key: "Alt+Shift+V", category: "Alignment", mustHave: true },
+    { title: "Distribute Horizontally", key: "Alt+Shift+H", category: "Alignment", mustHave: true },
+    { title: "Paste Unformatted Text", key: "Ctrl+Alt+T", category: "Formatting", mustHave: true },
+    { title: "Resize Shape to Fit Text", key: "Ctrl+8", altKey: "Ctrl+Shift+W", category: "Shapes", mustHave: true },
     { title: "Apply Default Text Format", key: "Ctrl+Space", category: "Formatting" },
     { title: "Cycle Accent Colors", key: "Alt+Shift+A", category: "Formatting" },
     { title: "Insert New Slide", key: "Ctrl+M", category: "Insert" },
     { title: "Change Font Size", key: "Ctrl+Shift+O", category: "Formatting" },
-    { title: "Group", key: "Ctrl+G", category: "Alignment" },
-    { title: "Ungroup", key: "Ctrl+Shift+G", category: "Alignment" },
-    { title: "Pickup Style", key: "Ctrl+Shift+C", category: "Formatting" },
-    { title: "Apply Style", key: "Ctrl+Shift+V", category: "Formatting" },
+    { title: "Group", key: "Ctrl+G", category: "Alignment", mustHave: true },
+    { title: "Ungroup", key: "Ctrl+Shift+G", category: "Alignment", mustHave: true },
+    { title: "Copy Style", key: "Ctrl+Shift+C", category: "Formatting", mustHave: true },
+    { title: "Paste Style", key: "Ctrl+Shift+V", category: "Formatting", mustHave: true },
     { title: "Green Print", key: "Ctrl+Alt+P", category: "Print" },
     { title: "Green Print Two Slides", key: "Ctrl+Alt+2", category: "Print" },
     { title: "Green Print Four Slides", key: "Ctrl+Alt+4", category: "Print" },
     { title: "Insert Footnote", key: "Ctrl+Alt+F", category: "Insert" },
-    { title: "Increase List Level", key: "Alt+Shift+Right Arrow", category: "Lists" },
-    { title: "Decrease List Level", key: "Alt+Shift+Left Arrow", category: "Lists" },
+    { title: "Increase Text Indentation List Level", key: "Alt+Shift+Right Arrow", category: "Lists", mustHave: true },
+    { title: "Decrease Text Indentation List Level", key: "Alt+Shift+Left Arrow", category: "Lists", mustHave: true },
     { title: "List Line Spacing", key: "Ctrl+Shift+L", category: "Lists" },
     { title: "Bring to Front", key: "Alt+Shift+]", category: "Ordering" },
     { title: "Bring Forward", key: "Alt+]", category: "Ordering" },
     { title: "Send to Back", key: "Alt+Shift+[", category: "Ordering" },
-    { title: "Send Backward", key: "Alt+[", category: "Ordering" }
+    { title: "Send Backward", key: "Alt+[", category: "Ordering" },
+    { title: "Shuffle Text Line Up", key: "Alt+Shift+Up Arrow", category: "Formatting", mustHave: true },
+    { title: "Shuffle Text Line Down", key: "Alt+Shift+Down Arrow", category: "Formatting", mustHave: true },
+    { title: "Increase Font Size", key: "Ctrl+Shift+>", category: "Formatting", mustHave: true },
+    { title: "Decrease Font Size", key: "Ctrl+Shift+<", category: "Formatting", mustHave: true },
+    { title: "Jump Between Objects", key: "Alt+Arrow Key", category: "Tools" },
+    { title: "Select Multiple Objects", key: "Click+Drag or Shift+Click", category: "Mouse", mustHave: true },
+    { title: "Move Horizontally / Vertically", key: "Shift+Drag", category: "Mouse", mustHave: true },
+    { title: "Copy Object", key: "Ctrl+Drag", category: "Mouse", mustHave: true },
+    { title: "Copy + Move Horizontally / Vertically", key: "Ctrl+Shift+Drag", category: "Mouse", mustHave: true },
+    { title: "Zoom In / Out", key: "Ctrl+Scroll", category: "Mouse", mustHave: true }
 ];
 
 const CATEGORIES = [...new Set(SHORTCUTS.map(s => s.category))];
@@ -67,7 +77,7 @@ function visTitleBar(label) {
 }
 
 const VISUALS = {
-    "Word Wrap": () => `<div class="vis">${visTitleBar('Formatting')}
+    "Wrap Text": () => `<div class="vis">${visTitleBar('Formatting')}
         <div class="vis-canvas">
             <div style="position:absolute;left:15px;top:12px;width:90px;height:55px;border:1.5px solid #B8CAFF;border-radius:3px;background:#F0F4FF"></div>
             <div style="position:absolute;left:20px;top:18px;font-size:6.5px;color:#333;font-family:Arial,Helvetica,sans-serif;animation:wrapText 4s ease-in-out infinite">
@@ -78,7 +88,7 @@ const VISUALS = {
             <span class="vis-label">BEFORE &rarr; AFTER</span>
         </div></div>`,
 
-    "Do Not Word Wrap": () => `<div class="vis">${visTitleBar('Formatting')}
+    "Do Not Wrap Text": () => `<div class="vis">${visTitleBar('Formatting')}
         <div class="vis-canvas">
             <div style="position:absolute;left:15px;top:12px;width:90px;height:55px;border:1.5px solid #B8CAFF;border-radius:3px;background:#F0F4FF;overflow:hidden"></div>
             <div style="position:absolute;left:20px;top:18px;font-size:6.5px;color:#333;font-family:Arial,Helvetica,sans-serif;animation:unwrapText 4s ease-in-out infinite">
@@ -102,7 +112,7 @@ const VISUALS = {
             <span class="vis-label">QUICK KEYS</span>
         </div></div>`,
 
-    "Toggle Shape State": () => `<div class="vis">${visTitleBar('Shapes')}
+    "Toggle Moons, Shapes and Flows (e.g. Cycle Harvey Ball states)": () => `<div class="vis">${visTitleBar('Shapes')}
         <div class="vis-canvas">
             <div style="position:absolute;left:35px;top:25px;width:50px;height:50px;animation:shapeToggle 4s ease-in-out infinite"></div>
             <div style="position:absolute;left:35px;top:85px;font-size:6px;color:#888;text-align:center;width:50px">Before</div>
@@ -224,7 +234,7 @@ const VISUALS = {
             <span class="vis-label">INSERT FLAG</span>
         </div></div>`,
 
-    "Insert Yellow Sticky": () => `<div class="vis">${visTitleBar('Insert')}
+    "Insert Sticky Note": () => `<div class="vis">${visTitleBar('Insert')}
         <div class="vis-canvas" style="display:flex;align-items:center;justify-content:center">
             <div style="width:80px;height:70px;background:#FFF9C4;border:1px solid #FFE082;border-radius:2px;box-shadow:2px 2px 6px rgba(0,0,0,.1);padding:6px;animation:insertAppear 4s ease-in-out infinite">
                 <div style="font-size:6px;color:#F57F17;font-weight:700;margin-bottom:3px">Note</div>
@@ -278,8 +288,8 @@ const VISUALS = {
             <span class="vis-label">SPLIT / JOIN</span>
         </div></div>`,
 
-    "Align Middle": () => makeAlignVisual('middle'),
-    "Align Center": () => makeAlignVisual('center'),
+    "Align Vertically": () => makeAlignVisual('middle'),
+    "Align Horizontally": () => makeAlignVisual('center'),
     "Align Left": () => makeAlignVisual('left'),
     "Align Right": () => makeAlignVisual('right'),
     "Align Top": () => makeAlignVisual('top'),
@@ -313,15 +323,12 @@ const VISUALS = {
             <span class="vis-label">UNFORMATTED</span>
         </div></div>`,
 
-    "Shape to Text Box": () => `<div class="vis">${visTitleBar('Shapes')}
+    "Resize Shape to Fit Text": () => `<div class="vis">${visTitleBar('Shapes')}
         <div class="vis-canvas">
-            <div style="position:absolute;left:20px;top:18px;width:55px;height:55px;background:#E8EEFF;border:2px solid #4A73FF;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:7px;color:#2251FF">Shape</div>
+            <div style="position:absolute;left:15px;top:15px;width:70px;height:70px;background:#E8EEFF;border:2px solid #4A73FF;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:7px;color:#2251FF;animation:shapeToText 4s ease-in-out infinite">Abc</div>
             <div style="position:absolute;left:50%;top:42px;transform:translateX(-50%);font-size:14px;color:#2251FF">&#10140;</div>
-            <div style="position:absolute;right:20px;top:22px;width:70px;height:30px;background:white;border:2px solid #999;border-radius:3px;display:flex;align-items:center;padding-left:6px;animation:insertAppear 4s ease-in-out infinite">
-                <div style="width:1px;height:14px;background:#333;animation:visPulse 1s ease infinite"></div>
-                <span style="font-size:6px;color:#aaa;margin-left:3px">Text Box</span>
-            </div>
-            <span class="vis-label">SHAPE &rarr; TEXT</span>
+            <div style="position:absolute;right:15px;top:25px;width:90px;height:28px;background:#E8EEFF;border:2px solid #4A73FF;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:7px;color:#2251FF;animation:insertAppear 4s ease-in-out infinite">Abc</div>
+            <span class="vis-label">RESIZE TO FIT</span>
         </div></div>`,
 
     "Apply Default Text Format": () => `<div class="vis">${visTitleBar('Formatting')}
@@ -384,23 +391,23 @@ const VISUALS = {
             <span class="vis-label">UNGROUP</span>
         </div></div>`,
 
-    "Pickup Style": () => `<div class="vis">${visTitleBar('Formatting')}
+    "Copy Style": () => `<div class="vis">${visTitleBar('Formatting')}
         <div class="vis-canvas">
             <div style="position:absolute;left:20px;top:20px;width:55px;height:40px;background:#4A73FF;border:2px solid #061F79;border-radius:4px;display:flex;align-items:center;justify-content:center;animation:stylePickup 4s ease-in-out infinite">
                 <span style="font-size:7px;color:white;font-weight:700">Styled</span>
             </div>
             <div style="position:absolute;left:85px;top:25px;font-size:22px;animation:visPulse 4s ease-in-out infinite">&#128065;</div>
-            <div style="position:absolute;left:50%;bottom:10px;transform:translateX(-50%);font-size:6px;color:#888">Style copied to clipboard</div>
-            <span class="vis-label">PICKUP</span>
+            <div style="position:absolute;left:50%;bottom:10px;transform:translateX(-50%);font-size:6px;color:#888">Style copied</div>
+            <span class="vis-label">COPY STYLE</span>
         </div></div>`,
 
-    "Apply Style": () => `<div class="vis">${visTitleBar('Formatting')}
+    "Paste Style": () => `<div class="vis">${visTitleBar('Formatting')}
         <div class="vis-canvas">
             <div style="position:absolute;left:20px;top:25px;width:45px;height:35px;background:#4A73FF;border:2px solid #061F79;border-radius:4px;font-size:6px;color:white;display:flex;align-items:center;justify-content:center;font-weight:700">Source</div>
             <div style="position:absolute;left:50%;top:38px;transform:translateX(-50%);font-size:12px;color:#2251FF">&#10140;</div>
             <div style="position:absolute;right:20px;top:25px;width:45px;height:35px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:6px;font-weight:700;color:white;animation:styleApply 4s ease-in-out infinite">Target</div>
-            <div style="position:absolute;left:50%;bottom:10px;transform:translateX(-50%);font-size:6px;color:#888">Style applied to target</div>
-            <span class="vis-label">APPLY STYLE</span>
+            <div style="position:absolute;left:50%;bottom:10px;transform:translateX(-50%);font-size:6px;color:#888">Style pasted to target</div>
+            <span class="vis-label">PASTE STYLE</span>
         </div></div>`,
 
     "Green Print": () => makePrintVisual(1),
@@ -418,7 +425,7 @@ const VISUALS = {
             <span class="vis-label">FOOTNOTE</span>
         </div></div>`,
 
-    "Increase List Level": () => `<div class="vis">${visTitleBar('Lists')}
+    "Increase Text Indentation List Level": () => `<div class="vis">${visTitleBar('Lists')}
         <div class="vis-canvas" style="padding:10px 15px">
             <div style="font-size:6.5px;color:#333;margin-bottom:4px">&#8226; First item</div>
             <div style="font-size:6.5px;color:#2251FF;font-weight:600;animation:indentRight 4s ease-in-out infinite">&#8226; Second item</div>
@@ -427,7 +434,7 @@ const VISUALS = {
             <span class="vis-label">INDENT +</span>
         </div></div>`,
 
-    "Decrease List Level": () => `<div class="vis">${visTitleBar('Lists')}
+    "Decrease Text Indentation List Level": () => `<div class="vis">${visTitleBar('Lists')}
         <div class="vis-canvas" style="padding:10px 15px">
             <div style="font-size:6.5px;color:#333;margin-bottom:4px">&#8226; First item</div>
             <div style="font-size:6.5px;color:#2251FF;font-weight:600;animation:indentLeft 4s ease-in-out infinite">&#8226; Second item</div>
@@ -451,7 +458,103 @@ const VISUALS = {
     "Bring to Front": () => makeOrderVisual('front'),
     "Bring Forward": () => makeOrderVisual('forward'),
     "Send to Back": () => makeOrderVisual('back'),
-    "Send Backward": () => makeOrderVisual('backward')
+    "Send Backward": () => makeOrderVisual('backward'),
+
+    "Shuffle Text Line Up": () => `<div class="vis">${visTitleBar('Formatting')}
+        <div class="vis-canvas" style="padding:10px 15px">
+            <div style="font-size:6.5px;color:#333;margin-bottom:4px">First line of text</div>
+            <div style="font-size:6.5px;color:#2251FF;font-weight:600;animation:alignT 4s ease-in-out infinite;--from-y:28px;position:absolute;left:15px;top:28px">Second line moves up</div>
+            <div style="font-size:6.5px;color:#333;position:absolute;left:15px;top:42px">Third line of text</div>
+            <div style="position:absolute;right:15px;top:50%;transform:translateY(-50%);font-size:16px;color:#2251FF;animation:visPulse 4s ease-in-out infinite">&#8593;</div>
+            <span class="vis-label">SHUFFLE UP</span>
+        </div></div>`,
+
+    "Shuffle Text Line Down": () => `<div class="vis">${visTitleBar('Formatting')}
+        <div class="vis-canvas" style="padding:10px 15px">
+            <div style="font-size:6.5px;color:#333;margin-bottom:4px">First line of text</div>
+            <div style="font-size:6.5px;color:#2251FF;font-weight:600;animation:alignB 4s ease-in-out infinite;--from-y:28px;--to-y:42px;position:absolute;left:15px;top:28px">Second line moves down</div>
+            <div style="font-size:6.5px;color:#333;position:absolute;left:15px;top:42px">Third line of text</div>
+            <div style="position:absolute;right:15px;top:50%;transform:translateY(-50%);font-size:16px;color:#2251FF;animation:visPulse 4s ease-in-out infinite">&#8595;</div>
+            <span class="vis-label">SHUFFLE DOWN</span>
+        </div></div>`,
+
+    "Increase Font Size": () => `<div class="vis">${visTitleBar('Formatting')}
+        <div class="vis-canvas" style="display:flex;align-items:center;justify-content:center">
+            <div style="animation:fontGrow 4s ease-in-out infinite;color:#2251FF;font-weight:700;font-family:Arial,Helvetica,sans-serif">A&#8599;</div>
+            <span class="vis-label">SIZE UP</span>
+        </div></div>`,
+
+    "Decrease Font Size": () => `<div class="vis">${visTitleBar('Formatting')}
+        <div class="vis-canvas" style="display:flex;align-items:center;justify-content:center">
+            <div style="font-size:14px;color:#2251FF;font-weight:700;font-family:Arial,Helvetica,sans-serif;animation:fontGrow 4s ease-in-out infinite reverse">A&#8600;</div>
+            <span class="vis-label">SIZE DOWN</span>
+        </div></div>`,
+
+    "Jump Between Objects": () => `<div class="vis">${visTitleBar('Tools')}
+        <div class="vis-canvas">
+            <div style="position:absolute;left:15px;top:20px;width:35px;height:28px;background:#2251FF;border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:6px;color:white;font-weight:700">A</div>
+            <div style="position:absolute;left:65px;top:15px;width:30px;height:30px;background:#4A73FF;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:6px;color:white;font-weight:700">B</div>
+            <div style="position:absolute;left:110px;top:22px;width:40px;height:25px;background:#051C2C;border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:6px;color:white;font-weight:700">C</div>
+            <div style="position:absolute;left:15px;top:60px;width:130px;height:0;border-top:1.5px dashed #2251FF"></div>
+            <div style="position:absolute;left:30px;top:54px;font-size:10px;color:#2251FF;animation:distributeH 4s ease-in-out infinite;--from-x:30px;--to-x:120px">&#9650;</div>
+            <div style="position:absolute;left:50%;bottom:6px;transform:translateX(-50%);font-size:6px;color:#8A95A0">Alt + any arrow key</div>
+            <span class="vis-label">JUMP</span>
+        </div></div>`,
+
+    "Select Multiple Objects": () => `<div class="vis">${visTitleBar('Mouse')}
+        <div class="vis-canvas">
+            <div style="position:absolute;left:15px;top:15px;width:35px;height:28px;background:#2251FF;border-radius:3px;border:2px solid #061F79;animation:visPulse 4s ease-in-out infinite"></div>
+            <div style="position:absolute;left:60px;top:20px;width:30px;height:30px;background:#4A73FF;border-radius:50%;border:2px solid #061F79;animation:visPulse 4s ease-in-out infinite .3s"></div>
+            <div style="position:absolute;left:100px;top:18px;width:40px;height:25px;background:#051C2C;border-radius:3px;border:2px solid #061F79;animation:visPulse 4s ease-in-out infinite .6s"></div>
+            <div style="position:absolute;left:10px;top:10px;width:140px;height:50px;border:1.5px dashed #2251FF;border-radius:3px;animation:insertAppear 4s ease-in-out infinite"></div>
+            <div style="position:absolute;left:50%;bottom:8px;transform:translateX(-50%);font-size:6px;color:#8A95A0">Click+Drag or Shift+Click</div>
+            <span class="vis-label">SELECT MULTI</span>
+        </div></div>`,
+
+    "Move Horizontally / Vertically": () => `<div class="vis">${visTitleBar('Mouse')}
+        <div class="vis-canvas">
+            <div style="position:absolute;left:30px;top:30px;width:45px;height:35px;background:#2251FF;border-radius:3px;animation:distributeH 4s ease-in-out infinite;--from-x:30px;--to-x:100px;display:flex;align-items:center;justify-content:center">
+                <span style="font-size:6px;color:white;font-weight:700">OBJ</span>
+            </div>
+            <div style="position:absolute;left:25px;top:48px;width:130px;height:0;border-top:1.5px dashed #B8CAFF"></div>
+            <div style="position:absolute;left:50%;bottom:8px;transform:translateX(-50%);font-size:6px;color:#8A95A0">Constrained to axis</div>
+            <span class="vis-label">SHIFT+DRAG</span>
+        </div></div>`,
+
+    "Copy Object": () => `<div class="vis">${visTitleBar('Mouse')}
+        <div class="vis-canvas">
+            <div style="position:absolute;left:25px;top:25px;width:45px;height:35px;background:#2251FF;border-radius:3px;display:flex;align-items:center;justify-content:center">
+                <span style="font-size:6px;color:white;font-weight:700">OBJ</span>
+            </div>
+            <div style="position:absolute;left:50%;top:38px;transform:translateX(-50%);font-size:12px;color:#2251FF">&#10140;</div>
+            <div style="position:absolute;right:25px;top:25px;width:45px;height:35px;background:#4A73FF;border-radius:3px;display:flex;align-items:center;justify-content:center;animation:insertAppear 4s ease-in-out infinite">
+                <span style="font-size:6px;color:white;font-weight:700">COPY</span>
+            </div>
+            <div style="position:absolute;left:50%;bottom:8px;transform:translateX(-50%);font-size:6px;color:#8A95A0">Ctrl + drag element</div>
+            <span class="vis-label">CTRL+DRAG</span>
+        </div></div>`,
+
+    "Copy + Move Horizontally / Vertically": () => `<div class="vis">${visTitleBar('Mouse')}
+        <div class="vis-canvas">
+            <div style="position:absolute;left:20px;top:28px;width:40px;height:30px;background:#2251FF;border-radius:3px;display:flex;align-items:center;justify-content:center">
+                <span style="font-size:6px;color:white;font-weight:700">OBJ</span>
+            </div>
+            <div style="position:absolute;left:20px;top:58px;width:130px;height:0;border-top:1.5px dashed #B8CAFF"></div>
+            <div style="position:absolute;right:20px;top:28px;width:40px;height:30px;background:#4A73FF;border-radius:3px;display:flex;align-items:center;justify-content:center;animation:insertAppear 4s ease-in-out infinite">
+                <span style="font-size:6px;color:white;font-weight:700">COPY</span>
+            </div>
+            <div style="position:absolute;left:50%;bottom:8px;transform:translateX(-50%);font-size:6px;color:#8A95A0">Copy + constrained axis</div>
+            <span class="vis-label">CTRL+SHIFT+DRAG</span>
+        </div></div>`,
+
+    "Zoom In / Out": () => `<div class="vis">${visTitleBar('Mouse')}
+        <div class="vis-canvas" style="display:flex;align-items:center;justify-content:center">
+            <div style="animation:zoomFit 4s ease-in-out infinite;text-align:center">
+                <div style="font-size:28px;color:#2251FF">&#128269;</div>
+                <div style="font-size:6px;color:#8A95A0;margin-top:4px">Ctrl + scroll wheel</div>
+            </div>
+            <span class="vis-label">ZOOM</span>
+        </div></div>`
 };
 
 // ===== VISUAL HELPER GENERATORS =====
@@ -487,7 +590,7 @@ function makeAlignVisual(direction) {
             break;
         case 'center':
             anim = starts.map((s, i) => `position:absolute;left:${s.x}px;top:${s.y}px;width:${shapes[i].w}px;height:${shapes[i].h}px;background:${shapes[i].color};border-radius:3px;animation:alignCX 4s ease-in-out infinite;--from-x:${s.x}px`);
-            label = 'ALIGN CENTER'; arrow = '&#8596;';
+            label = 'ALIGN HORIZ'; arrow = '&#8596;';
             break;
         case 'top':
             anim = starts.map((s, i) => `position:absolute;left:${s.x}px;top:${s.y}px;width:${shapes[i].w}px;height:${shapes[i].h}px;background:${shapes[i].color};border-radius:3px;animation:alignT 4s ease-in-out infinite;--from-y:${s.y}px`);
@@ -502,7 +605,7 @@ function makeAlignVisual(direction) {
             break;
         case 'middle':
             anim = starts.map((s, i) => `position:absolute;left:${s.x}px;top:${s.y}px;width:${shapes[i].w}px;height:${shapes[i].h}px;background:${shapes[i].color};border-radius:3px;animation:alignMY 4s ease-in-out infinite;--from-y:${s.y}px`);
-            label = 'ALIGN MIDDLE'; arrow = '&#8597;';
+            label = 'ALIGN VERT'; arrow = '&#8597;';
             break;
     }
 
@@ -592,7 +695,8 @@ let state = {
     speedScore: 0,
     speedTimer: null,
     speedTimeLeft: 60,
-    activeCategory: null
+    activeCategory: null,
+    mustHaveOnly: false
 };
 
 // ===== INIT =====
@@ -676,8 +780,10 @@ function shuffle(arr) {
 }
 
 function getFilteredShortcuts() {
-    if (!state.activeCategory) return [...SHORTCUTS];
-    return SHORTCUTS.filter(s => s.category === state.activeCategory);
+    let shortcuts = [...SHORTCUTS];
+    if (state.activeCategory) shortcuts = shortcuts.filter(s => s.category === state.activeCategory);
+    if (state.mustHaveOnly) shortcuts = shortcuts.filter(s => s.mustHave);
+    return shortcuts;
 }
 
 function getMasteredCount() { return Object.values(state.progress).filter(p => p.status === 'mastered').length; }
@@ -735,9 +841,39 @@ function switchView(mode) {
 // ===== DASHBOARD =====
 function setupDashboard() {
     updateProgressRing();
+    renderMustHaveToggle();
     renderCategoryChips();
     renderShortcutTable();
     document.getElementById('resetProgress').onclick = resetAllProgress;
+}
+
+function renderMustHaveToggle() {
+    const container = document.getElementById('mustHaveToggle');
+    if (!container) return;
+    container.innerHTML = `
+        <label class="toggle-switch-label">
+            <span class="toggle-switch">
+                <input type="checkbox" id="mustHaveCheck" ${state.mustHaveOnly ? 'checked' : ''}>
+                <span class="toggle-slider"></span>
+            </span>
+            <span class="toggle-text">Must-Haves Only</span>
+            <span class="toggle-hint">Applies across all modes</span>
+        </label>
+    `;
+    document.getElementById('mustHaveCheck').addEventListener('change', (e) => {
+        state.mustHaveOnly = e.target.checked;
+        renderCategoryChips();
+        renderShortcutTable();
+        // Re-init whichever mode is active
+        const activeView = document.querySelector('.view.active');
+        if (activeView) {
+            const mode = activeView.id;
+            if (mode === 'learn') initLearnDeck();
+            if (mode === 'practice') initPractice();
+            if (mode === 'quiz') initQuiz();
+            if (mode === 'speed') initSpeed();
+        }
+    });
 }
 
 function updateProgressRing() {
@@ -756,13 +892,15 @@ function updateProgressRing() {
 function renderCategoryChips() {
     const container = document.getElementById('categoryChips');
     container.innerHTML = '';
+    const pool = state.mustHaveOnly ? SHORTCUTS.filter(s => s.mustHave) : SHORTCUTS;
     const allChip = document.createElement('button');
     allChip.className = 'category-chip' + (!state.activeCategory ? ' active' : '');
-    allChip.textContent = `All (${SHORTCUTS.length})`;
+    allChip.textContent = `All (${pool.length})`;
     allChip.addEventListener('click', () => { state.activeCategory = null; renderCategoryChips(); renderShortcutTable(); });
     container.appendChild(allChip);
     CATEGORIES.forEach(cat => {
-        const count = SHORTCUTS.filter(s => s.category === cat).length;
+        const count = pool.filter(s => s.category === cat).length;
+        if (state.mustHaveOnly && count === 0) return;
         const chip = document.createElement('button');
         chip.className = 'category-chip' + (state.activeCategory === cat ? ' active' : '');
         chip.textContent = `${cat} (${count})`;
@@ -782,7 +920,9 @@ function renderShortcutTable(filter = '') {
     shortcuts.forEach(s => {
         const p = state.progress[s.title];
         const tr = document.createElement('tr');
-        tr.innerHTML = `<td>${s.title}</td><td><span class="shortcut-key">${s.key}</span></td><td><span class="category-badge">${s.category}</span></td><td><span class="status-badge ${p.status}">${p.status}</span></td>`;
+        const keyDisplay = s.altKey ? `<span class="shortcut-key">${s.key}</span> <span style="font-size:.7rem;color:var(--text-muted)">or</span> <span class="shortcut-key">${s.altKey}</span>` : `<span class="shortcut-key">${s.key}</span>`;
+        const mustHaveBadge = s.mustHave ? '<span class="must-have-badge" title="Must-have shortcut">&#9733;</span> ' : '';
+        tr.innerHTML = `<td>${mustHaveBadge}${s.title}</td><td>${keyDisplay}</td><td><span class="category-badge">${s.category}</span></td><td><span class="status-badge ${p.status}">${p.status}</span></td>`;
         tbody.appendChild(tr);
     });
     const searchInput = document.getElementById('searchInput');
@@ -818,7 +958,7 @@ function showCard() {
     const idx = state.currentCard % deck.length;
     const card = deck[idx];
     document.getElementById('cardFrontText').textContent = card.title;
-    document.getElementById('cardBackText').textContent = card.key;
+    document.getElementById('cardBackText').textContent = card.altKey ? `${card.key} or ${card.altKey}` : card.key;
     document.getElementById('cardProgress').textContent = `${idx + 1} / ${deck.length}`;
     document.getElementById('cardProgressFill').style.width = ((idx + 1) / deck.length * 100) + '%';
     // Show visual on flashcard front
@@ -933,22 +1073,23 @@ function handlePracticeKey(e) {
     display.innerHTML = `<span>${pressed}</span>`;
     const q = state.practiceQueue;
     const idx = state.practiceIndex % q.length;
-    const correct = q[idx].key;
-    if (normalizeKey(pressed) === normalizeKey(correct)) {
+    const shortcut = q[idx];
+    const displayKey = shortcut.altKey ? `${shortcut.key} or ${shortcut.altKey}` : shortcut.key;
+    if (isCorrectKey(pressed, shortcut)) {
         display.className = 'key-display correct';
         document.getElementById('practiceFeedback').textContent = 'Correct!';
         document.getElementById('practiceFeedback').className = 'practice-feedback correct';
         state.practiceCorrect++;
         document.getElementById('practiceCorrect').textContent = state.practiceCorrect;
-        markCorrect(q[idx].title);
+        markCorrect(shortcut.title);
         state.practiceAnswered = true;
     } else {
         display.className = 'key-display wrong';
-        document.getElementById('practiceFeedback').innerHTML = `Wrong — the answer is <strong>${correct}</strong>`;
+        document.getElementById('practiceFeedback').innerHTML = `Wrong — the answer is <strong>${displayKey}</strong>`;
         document.getElementById('practiceFeedback').className = 'practice-feedback wrong';
         state.practiceWrong++;
         document.getElementById('practiceWrong').textContent = state.practiceWrong;
-        markWrong(q[idx].title);
+        markWrong(shortcut.title);
         state.practiceAnswered = true;
     }
 }
@@ -959,11 +1100,26 @@ function normalizeKey(k) {
         .replace('arrowup', 'uparrow').replace('arrowdown', 'downarrow');
 }
 
+function isCorrectKey(pressed, shortcut) {
+    const norm = normalizeKey(pressed);
+    if (norm === normalizeKey(shortcut.key)) return true;
+    if (shortcut.altKey && norm === normalizeKey(shortcut.altKey)) return true;
+    // Accept any Alt+Arrow for "Jump Between Objects"
+    if (shortcut.key === 'Alt+Arrow Key' && /^alt\+(left|right|up|down)arrow$/.test(norm)) return true;
+    // Mouse shortcuts: accept if typed text matches the key display (case-insensitive, trimmed)
+    if (shortcut.category === 'Mouse') {
+        const parts = shortcut.key.toLowerCase().split(' or ').map(s => s.trim());
+        return parts.some(p => norm === normalizeKey(p));
+    }
+    return false;
+}
+
 function showPracticeAnswer() {
     const q = state.practiceQueue;
     const idx = state.practiceIndex % q.length;
-    const correct = q[idx].key;
-    document.getElementById('keyDisplay').innerHTML = `<span style="color:var(--accent)">${correct}</span>`;
+    const shortcut = q[idx];
+    const displayKey = shortcut.altKey ? `${shortcut.key} or ${shortcut.altKey}` : shortcut.key;
+    document.getElementById('keyDisplay').innerHTML = `<span style="color:var(--accent)">${displayKey}</span>`;
     document.getElementById('keyDisplay').className = 'key-display';
     document.getElementById('practiceFeedback').textContent = 'Answer revealed';
     document.getElementById('practiceFeedback').className = 'practice-feedback';
@@ -977,23 +1133,24 @@ function handleTypedAnswer() {
     if (!typed) return;
     const q = state.practiceQueue;
     const idx = state.practiceIndex % q.length;
-    const correct = q[idx].key;
+    const shortcut = q[idx];
+    const displayKey = shortcut.altKey ? `${shortcut.key} or ${shortcut.altKey}` : shortcut.key;
     const display = document.getElementById('keyDisplay');
     display.innerHTML = `<span>${typed}</span>`;
-    if (normalizeKey(typed) === normalizeKey(correct)) {
+    if (isCorrectKey(typed, shortcut)) {
         display.className = 'key-display correct';
         document.getElementById('practiceFeedback').textContent = 'Correct!';
         document.getElementById('practiceFeedback').className = 'practice-feedback correct';
         state.practiceCorrect++;
         document.getElementById('practiceCorrect').textContent = state.practiceCorrect;
-        markCorrect(q[idx].title);
+        markCorrect(shortcut.title);
     } else {
         display.className = 'key-display wrong';
-        document.getElementById('practiceFeedback').innerHTML = `Wrong — the answer is <strong>${correct}</strong>`;
+        document.getElementById('practiceFeedback').innerHTML = `Wrong — the answer is <strong>${displayKey}</strong>`;
         document.getElementById('practiceFeedback').className = 'practice-feedback wrong';
         state.practiceWrong++;
         document.getElementById('practiceWrong').textContent = state.practiceWrong;
-        markWrong(q[idx].title);
+        markWrong(shortcut.title);
     }
     state.practiceAnswered = true;
 }

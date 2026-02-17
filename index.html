@@ -28,7 +28,7 @@
             <div class="header-stats">
                 <div class="stat-pill" id="headerMastered">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                    <span><strong id="masteredCount">0</strong> / 50 mastered</span>
+                    <span><strong id="masteredCount">0</strong> / 60 mastered</span>
                 </div>
                 <div class="stat-pill" id="headerStreak">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
@@ -52,7 +52,7 @@
                 <span>Practice</span>
             </button>
             <button class="nav-btn" data-mode="quiz" aria-label="Quiz">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><text x="12" y="18" text-anchor="middle" font-size="18" font-weight="700" fill="currentColor" stroke="none">?</text></svg>
                 <span>Quiz</span>
             </button>
             <button class="nav-btn" data-mode="speed" aria-label="Speed Run">
@@ -64,7 +64,7 @@
         <!-- DASHBOARD VIEW -->
         <section id="dashboard" class="view active">
             <div class="dashboard-hero">
-                <h2>Master 50 PowerPoint Shortcuts Today</h2>
+                <h2>Master 60 PowerPoint Shortcuts Today</h2>
                 <p>Learn, practice, and test your knowledge with four interactive modes.</p>
             </div>
 
@@ -83,7 +83,7 @@
                     <div class="detail-row">
                         <span class="detail-dot new"></span>
                         <span>New</span>
-                        <strong id="newCount">50</strong>
+                        <strong id="newCount">60</strong>
                     </div>
                     <div class="detail-row">
                         <span class="detail-dot learning"></span>
@@ -115,7 +115,7 @@
                 </button>
                 <button class="mode-card" data-launch="quiz">
                     <div class="mode-card-icon quiz-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><text x="12" y="18" text-anchor="middle" font-size="18" font-weight="700" fill="currentColor" stroke="none">?</text></svg>
                     </div>
                     <h3>Quiz</h3>
                     <p>Multiple choice to reinforce your memory</p>
@@ -131,6 +131,7 @@
 
             <div class="category-filter-section">
                 <h3>Shortcut Categories</h3>
+                <div class="must-have-toggle" id="mustHaveToggle"></div>
                 <div class="category-chips" id="categoryChips"></div>
             </div>
 
@@ -153,6 +154,10 @@
             <div class="reset-section">
                 <button class="btn-reset" id="resetProgress">Reset All Progress</button>
             </div>
+
+            <footer class="site-footnote">
+                <p>These shortcuts can vary based on computer type (Windows and Mac) and computer settings (keyboard language/layout). These shortcuts have been tested with Windows on an American keyboard (QWERTY layout).</p>
+            </footer>
         </section>
 
         <!-- LEARN VIEW (Flashcards) -->
@@ -163,7 +168,7 @@
             </div>
             <div class="flashcard-area">
                 <div class="flashcard-progress">
-                    <span id="cardProgress">1 / 50</span>
+                    <span id="cardProgress">1 / 60</span>
                     <div class="mini-progress-bar"><div class="mini-progress-fill" id="cardProgressFill"></div></div>
                 </div>
                 <div class="flashcard" id="flashcard">
