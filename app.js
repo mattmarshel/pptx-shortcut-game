@@ -8,11 +8,11 @@ const SHORTCUTS = [
     { title: "Wrap Text", key: "Ctrl+7", category: "Formatting" },
     { title: "Do Not Wrap Text", key: "Ctrl+Shift+7", category: "Formatting" },
     { title: "Quick Keys", key: "Ctrl+Alt+Q", category: "Tools" },
-    { title: "Toggle Moons, Shapes and Flows", key: "Ctrl+T", category: "Shapes" },
-    { title: "Make Same Size", key: "Alt+Z", category: "Alignment" },
+    { title: "Toggle Moons, Shapes and Flows (e.g. Cycle Harvey Ball states)", key: "Ctrl+T", category: "Shapes", mustHave: true },
+    { title: "Make Same Size", key: "Alt+Z", category: "Alignment", mustHave: true },
     { title: "Make Same Height", key: "Ctrl+Shift+E", category: "Alignment" },
     { title: "Make Same Width", key: "Ctrl+Alt+E", category: "Alignment" },
-    { title: "Insert Textbox", key: "Alt+Q", category: "Insert" },
+    { title: "Insert Textbox", key: "Alt+Q", category: "Insert", mustHave: true },
     { title: "Text to Autoshape", key: "Alt+Shift+Z", category: "Shapes" },
     { title: "Align and Group", key: "Alt+G", category: "Alignment" },
     { title: "Copy Position", key: "Ctrl+1", category: "Position" },
@@ -21,50 +21,50 @@ const SHORTCUTS = [
     { title: "Slide Sorter View", key: "Ctrl+4", category: "View" },
     { title: "Fit to Window", key: "Ctrl+5", category: "View" },
     { title: "Insert Flag", key: "Ctrl+6", category: "Insert" },
-    { title: "Insert Sticky Note", key: "Ctrl+0", category: "Insert" },
+    { title: "Insert Sticky Note", key: "Ctrl+0", category: "Insert", mustHave: true },
     { title: "Insert Sticker", key: "Ctrl+Alt+S", category: "Insert" },
     { title: "Insert Legend", key: "Ctrl+Alt+L", category: "Insert" },
     { title: "Reset Fixed Elements", key: "Ctrl+Alt+R", category: "Tools" },
     { title: "Split/Join Textboxes", key: "Ctrl+Alt+J", category: "Tools" },
     { title: "Align Vertically", key: "Ctrl+Alt+M", category: "Alignment" },
     { title: "Align Horizontally", key: "Ctrl+Alt+C", category: "Alignment" },
-    { title: "Align Left", key: "Ctrl+Alt+Left Arrow", category: "Alignment" },
-    { title: "Align Right", key: "Ctrl+Alt+Right Arrow", category: "Alignment" },
-    { title: "Align Top", key: "Ctrl+Alt+Up Arrow", category: "Alignment" },
-    { title: "Align Bottom", key: "Ctrl+Alt+Down Arrow", category: "Alignment" },
-    { title: "Distribute Vertically", key: "Alt+Shift+V", category: "Alignment" },
-    { title: "Distribute Horizontally", key: "Alt+Shift+H", category: "Alignment" },
-    { title: "Paste Unformatted Text", key: "Ctrl+Alt+T", category: "Formatting" },
-    { title: "Resize Shape to Fit Text", key: "Ctrl+8", altKey: "Ctrl+Shift+W", category: "Shapes" },
+    { title: "Align Left", key: "Ctrl+Alt+Left Arrow", category: "Alignment", mustHave: true },
+    { title: "Align Right", key: "Ctrl+Alt+Right Arrow", category: "Alignment", mustHave: true },
+    { title: "Align Top", key: "Ctrl+Alt+Up Arrow", category: "Alignment", mustHave: true },
+    { title: "Align Bottom", key: "Ctrl+Alt+Down Arrow", category: "Alignment", mustHave: true },
+    { title: "Distribute Vertically", key: "Alt+Shift+V", category: "Alignment", mustHave: true },
+    { title: "Distribute Horizontally", key: "Alt+Shift+H", category: "Alignment", mustHave: true },
+    { title: "Paste Unformatted Text", key: "Ctrl+Alt+T", category: "Formatting", mustHave: true },
+    { title: "Resize Shape to Fit Text", key: "Ctrl+8", altKey: "Ctrl+Shift+W", category: "Shapes", mustHave: true },
     { title: "Apply Default Text Format", key: "Ctrl+Space", category: "Formatting" },
     { title: "Cycle Accent Colors", key: "Alt+Shift+A", category: "Formatting" },
     { title: "Insert New Slide", key: "Ctrl+M", category: "Insert" },
     { title: "Change Font Size", key: "Ctrl+Shift+O", category: "Formatting" },
-    { title: "Group", key: "Ctrl+G", category: "Alignment" },
-    { title: "Ungroup", key: "Ctrl+Shift+G", category: "Alignment" },
-    { title: "Copy Style", key: "Ctrl+Shift+C", category: "Formatting" },
-    { title: "Paste Style", key: "Ctrl+Shift+V", category: "Formatting" },
+    { title: "Group", key: "Ctrl+G", category: "Alignment", mustHave: true },
+    { title: "Ungroup", key: "Ctrl+Shift+G", category: "Alignment", mustHave: true },
+    { title: "Copy Style", key: "Ctrl+Shift+C", category: "Formatting", mustHave: true },
+    { title: "Paste Style", key: "Ctrl+Shift+V", category: "Formatting", mustHave: true },
     { title: "Green Print", key: "Ctrl+Alt+P", category: "Print" },
     { title: "Green Print Two Slides", key: "Ctrl+Alt+2", category: "Print" },
     { title: "Green Print Four Slides", key: "Ctrl+Alt+4", category: "Print" },
     { title: "Insert Footnote", key: "Ctrl+Alt+F", category: "Insert" },
-    { title: "Increase Text Indentation List Level", key: "Alt+Shift+Right Arrow", category: "Lists" },
-    { title: "Decrease Text Indentation List Level", key: "Alt+Shift+Left Arrow", category: "Lists" },
+    { title: "Increase Text Indentation List Level", key: "Alt+Shift+Right Arrow", category: "Lists", mustHave: true },
+    { title: "Decrease Text Indentation List Level", key: "Alt+Shift+Left Arrow", category: "Lists", mustHave: true },
     { title: "List Line Spacing", key: "Ctrl+Shift+L", category: "Lists" },
     { title: "Bring to Front", key: "Alt+Shift+]", category: "Ordering" },
     { title: "Bring Forward", key: "Alt+]", category: "Ordering" },
     { title: "Send to Back", key: "Alt+Shift+[", category: "Ordering" },
     { title: "Send Backward", key: "Alt+[", category: "Ordering" },
-    { title: "Shuffle Text Line Up", key: "Alt+Shift+Up Arrow", category: "Formatting" },
-    { title: "Shuffle Text Line Down", key: "Alt+Shift+Down Arrow", category: "Formatting" },
-    { title: "Increase Font Size", key: "Ctrl+Shift+>", category: "Formatting" },
-    { title: "Decrease Font Size", key: "Ctrl+Shift+<", category: "Formatting" },
+    { title: "Shuffle Text Line Up", key: "Alt+Shift+Up Arrow", category: "Formatting", mustHave: true },
+    { title: "Shuffle Text Line Down", key: "Alt+Shift+Down Arrow", category: "Formatting", mustHave: true },
+    { title: "Increase Font Size", key: "Ctrl+Shift+>", category: "Formatting", mustHave: true },
+    { title: "Decrease Font Size", key: "Ctrl+Shift+<", category: "Formatting", mustHave: true },
     { title: "Jump Between Objects", key: "Alt+Any Arrow Key", acceptKeys: ["Alt+Left Arrow", "Alt+Right Arrow", "Alt+Up Arrow", "Alt+Down Arrow"], category: "Navigation" },
-    { title: "Select Multiple Objects", key: "Click+Drag / Shift+Click", acceptKeys: ["Click+Drag", "Shift+Click"], category: "Mouse" },
-    { title: "Move Horizontally / Vertically", key: "Shift+Drag", category: "Mouse" },
-    { title: "Copy Object", key: "Ctrl+Drag", category: "Mouse" },
-    { title: "Copy + Move Horizontally / Vertically", key: "Ctrl+Shift+Drag", category: "Mouse" },
-    { title: "Zoom In / Out", key: "Ctrl+Scroll", category: "Mouse" }
+    { title: "Select Multiple Objects", key: "Click+Drag / Shift+Click", acceptKeys: ["Click+Drag", "Shift+Click"], category: "Mouse", mustHave: true },
+    { title: "Move Horizontally / Vertically", key: "Shift+Drag", category: "Mouse", mustHave: true },
+    { title: "Copy Object", key: "Ctrl+Drag", category: "Mouse", mustHave: true },
+    { title: "Copy + Move Horizontally / Vertically", key: "Ctrl+Shift+Drag", category: "Mouse", mustHave: true },
+    { title: "Zoom In / Out", key: "Ctrl+Scroll", category: "Mouse", mustHave: true }
 ];
 
 const CATEGORIES = [...new Set(SHORTCUTS.map(s => s.category))];
@@ -112,7 +112,7 @@ const VISUALS = {
             <span class="vis-label">QUICK KEYS</span>
         </div></div>`,
 
-    "Toggle Moons, Shapes and Flows": () => `<div class="vis">${visTitleBar('Shapes')}
+    "Toggle Moons, Shapes and Flows (e.g. Cycle Harvey Ball states)": () => `<div class="vis">${visTitleBar('Shapes')}
         <div class="vis-canvas">
             <div style="position:absolute;left:35px;top:25px;width:50px;height:50px;animation:shapeToggle 4s ease-in-out infinite"></div>
             <div style="position:absolute;left:35px;top:85px;font-size:6px;color:#888;text-align:center;width:50px">Before</div>
@@ -879,7 +879,8 @@ function renderShortcutTable(filter = '') {
     shortcuts.forEach(s => {
         const p = state.progress[s.title];
         const tr = document.createElement('tr');
-        tr.innerHTML = `<td>${s.title}</td><td><span class="shortcut-key">${s.key}</span></td><td><span class="category-badge">${s.category}</span></td><td><span class="status-badge ${p.status}">${p.status}</span></td>`;
+        const mustTag = s.mustHave ? '<span class="must-have-badge">Must-Have</span>' : '';
+        tr.innerHTML = `<td>${s.title} ${mustTag}</td><td><span class="shortcut-key">${s.key}</span></td><td><span class="category-badge">${s.category}</span></td><td><span class="status-badge ${p.status}">${p.status}</span></td>`;
         tbody.appendChild(tr);
     });
     const searchInput = document.getElementById('searchInput');
@@ -914,7 +915,7 @@ function showCard() {
     if (deck.length === 0) return;
     const idx = state.currentCard % deck.length;
     const card = deck[idx];
-    document.getElementById('cardFrontText').textContent = card.title;
+    document.getElementById('cardFrontText').innerHTML = card.title + (card.mustHave ? ' <span class="must-have-badge">Must-Have</span>' : '');
     document.getElementById('cardBackText').textContent = card.key;
     document.getElementById('cardProgress').textContent = `${idx + 1} / ${deck.length}`;
     document.getElementById('cardProgressFill').style.width = ((idx + 1) / deck.length * 100) + '%';
@@ -986,7 +987,7 @@ function showPracticeQuestion() {
     if (q.length === 0) return;
     const idx = state.practiceIndex % q.length;
     const shortcut = q[idx];
-    document.getElementById('practiceAction').textContent = shortcut.title;
+    document.getElementById('practiceAction').innerHTML = shortcut.title + (shortcut.mustHave ? ' <span class="must-have-badge">Must-Have</span>' : '');
     // Show visual
     const visContainer = document.getElementById('practiceVisual');
     if (visContainer) visContainer.innerHTML = renderVisual(shortcut.title);
@@ -1132,7 +1133,7 @@ function initQuiz() {
 function showQuizQuestion() {
     if (state.quizIndex >= state.quizQuestions.length) { showQuizResults(); return; }
     const current = state.quizQuestions[state.quizIndex];
-    document.getElementById('quizAction').textContent = current.title;
+    document.getElementById('quizAction').innerHTML = current.title + (current.mustHave ? ' <span class="must-have-badge">Must-Have</span>' : '');
     // Show visual
     const visContainer = document.getElementById('quizVisual');
     if (visContainer) visContainer.innerHTML = renderVisual(current.title);
@@ -1245,7 +1246,7 @@ function startSpeedTimer() {
 function showSpeedQuestion() {
     const pool = getFilteredShortcuts();
     const current = pool[Math.floor(Math.random() * pool.length)];
-    document.getElementById('speedAction').textContent = current.title;
+    document.getElementById('speedAction').innerHTML = current.title + (current.mustHave ? ' <span class="must-have-badge">Must-Have</span>' : '');
     // Show visual in speed mode
     const visContainer = document.getElementById('speedVisual');
     if (visContainer) visContainer.innerHTML = renderVisual(current.title);
