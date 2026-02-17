@@ -48,8 +48,8 @@ const SHORTCUTS = [
     { title: "Green Print Two Slides", key: "Ctrl+Alt+2", category: "Print" },
     { title: "Green Print Four Slides", key: "Ctrl+Alt+4", category: "Print" },
     { title: "Insert Footnote", key: "Ctrl+Alt+F", category: "Insert" },
-    { title: "Increase List Level", key: "Alt+Shift+Right Arrow", category: "Lists" },
-    { title: "Decrease List Level", key: "Alt+Shift+Left Arrow", category: "Lists" },
+    { title: "Increase Text Indentation List Level", key: "Alt+Shift+Right Arrow", category: "Lists" },
+    { title: "Decrease Text Indentation List Level", key: "Alt+Shift+Left Arrow", category: "Lists" },
     { title: "List Line Spacing", key: "Ctrl+Shift+L", category: "Lists" },
     { title: "Bring to Front", key: "Alt+Shift+]", category: "Ordering" },
     { title: "Bring Forward", key: "Alt+]", category: "Ordering" },
@@ -419,7 +419,7 @@ const VISUALS = {
             <span class="vis-label">FOOTNOTE</span>
         </div></div>`,
 
-    "Increase List Level": () => `<div class="vis">${visTitleBar('Lists')}
+    "Increase Text Indentation List Level": () => `<div class="vis">${visTitleBar('Lists')}
         <div class="vis-canvas" style="padding:10px 15px">
             <div style="font-size:6.5px;color:#333;margin-bottom:4px">&#8226; First item</div>
             <div style="font-size:6.5px;color:#B7472A;font-weight:600;animation:indentRight 4s ease-in-out infinite">&#8226; Second item</div>
@@ -428,7 +428,7 @@ const VISUALS = {
             <span class="vis-label">INDENT +</span>
         </div></div>`,
 
-    "Decrease List Level": () => `<div class="vis">${visTitleBar('Lists')}
+    "Decrease Text Indentation List Level": () => `<div class="vis">${visTitleBar('Lists')}
         <div class="vis-canvas" style="padding:10px 15px">
             <div style="font-size:6.5px;color:#333;margin-bottom:4px">&#8226; First item</div>
             <div style="font-size:6.5px;color:#B7472A;font-weight:600;animation:indentLeft 4s ease-in-out infinite">&#8226; Second item</div>
