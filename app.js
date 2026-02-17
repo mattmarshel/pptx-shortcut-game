@@ -21,7 +21,7 @@ const SHORTCUTS = [
     { title: "Slide Sorter View", key: "Ctrl+4", category: "View" },
     { title: "Fit to Window", key: "Ctrl+5", category: "View" },
     { title: "Insert Flag", key: "Ctrl+6", category: "Insert" },
-    { title: "Insert Yellow Sticky", key: "Ctrl+0", category: "Insert" },
+    { title: "Insert Sticky Note", key: "Ctrl+0", category: "Insert" },
     { title: "Insert Sticker", key: "Ctrl+Alt+S", category: "Insert" },
     { title: "Insert Legend", key: "Ctrl+Alt+L", category: "Insert" },
     { title: "Reset Fixed Elements", key: "Ctrl+Alt+R", category: "Tools" },
@@ -56,7 +56,9 @@ const SHORTCUTS = [
     { title: "Send to Back", key: "Alt+Shift+[", category: "Ordering" },
     { title: "Send Backward", key: "Alt+[", category: "Ordering" },
     { title: "Shuffle Text Line Up", key: "Alt+Shift+Up Arrow", category: "Formatting" },
-    { title: "Shuffle Text Line Down", key: "Alt+Shift+Down Arrow", category: "Formatting" }
+    { title: "Shuffle Text Line Down", key: "Alt+Shift+Down Arrow", category: "Formatting" },
+    { title: "Increase Font Size", key: "Ctrl+Shift+>", category: "Formatting" },
+    { title: "Decrease Font Size", key: "Ctrl+Shift+<", category: "Formatting" }
 ];
 
 const CATEGORIES = [...new Set(SHORTCUTS.map(s => s.category))];
@@ -226,7 +228,7 @@ const VISUALS = {
             <span class="vis-label">INSERT FLAG</span>
         </div></div>`,
 
-    "Insert Yellow Sticky": () => `<div class="vis">${visTitleBar('Insert')}
+    "Insert Sticky Note": () => `<div class="vis">${visTitleBar('Insert')}
         <div class="vis-canvas" style="display:flex;align-items:center;justify-content:center">
             <div style="width:80px;height:70px;background:#FFF9C4;border:1px solid #FFE082;border-radius:2px;box-shadow:2px 2px 6px rgba(0,0,0,.1);padding:6px;animation:insertAppear 4s ease-in-out infinite">
                 <div style="font-size:6px;color:#F57F17;font-weight:700;margin-bottom:3px">Note</div>
@@ -470,6 +472,20 @@ const VISUALS = {
             <div style="font-size:6.5px;color:#333;margin-bottom:4px;padding:3px 6px;background:#f5f5f5;border-radius:2px">Third line of text</div>
             <div style="position:absolute;right:15px;top:50%;transform:translateY(-50%);font-size:16px;color:#B7472A;animation:visPulse 4s ease-in-out infinite">&#8595;</div>
             <span class="vis-label">SHUFFLE DOWN</span>
+        </div></div>`,
+
+    "Increase Font Size": () => `<div class="vis">${visTitleBar('Formatting')}
+        <div class="vis-canvas" style="display:flex;align-items:center;justify-content:center">
+            <div style="animation:fontGrow 4s ease-in-out infinite;color:#B7472A;font-weight:700;font-family:Inter,sans-serif">A</div>
+            <div style="position:absolute;right:20px;top:50%;transform:translateY(-50%);font-size:18px;color:#B7472A;animation:visPulse 4s ease-in-out infinite">&#8599;</div>
+            <span class="vis-label">SIZE +</span>
+        </div></div>`,
+
+    "Decrease Font Size": () => `<div class="vis">${visTitleBar('Formatting')}
+        <div class="vis-canvas" style="display:flex;align-items:center;justify-content:center">
+            <div style="animation:fontShrink 4s ease-in-out infinite;color:#B7472A;font-weight:700;font-family:Inter,sans-serif">A</div>
+            <div style="position:absolute;right:20px;top:50%;transform:translateY(-50%);font-size:18px;color:#B7472A;animation:visPulse 4s ease-in-out infinite">&#8600;</div>
+            <span class="vis-label">SIZE -</span>
         </div></div>`
 };
 

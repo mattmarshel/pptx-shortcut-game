@@ -217,6 +217,10 @@ tbody tr:hover { background:var(--accent-pale); }
     0%,40% { font-size:8px; }
     50%,100% { font-size:14px; }
 }
+@keyframes fontShrink {
+    0%,40% { font-size:14px; }
+    50%,100% { font-size:8px; }
+}
 @keyframes colorCycle {
     0%,20% { background:#B7472A; }
     25%,45% { background:#1565C0; }
