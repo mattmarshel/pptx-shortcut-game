@@ -745,6 +745,10 @@ function loadProgress() {
             state.progress[s.title] = { status: 'new', correctStreak: 0, lastSeen: 0 };
         }
     });
+    const validTitles = new Set(SHORTCUTS.map(s => s.title));
+    Object.keys(state.progress).forEach(key => {
+        if (!validTitles.has(key)) delete state.progress[key];
+    });
 }
 
 function saveProgress() {
