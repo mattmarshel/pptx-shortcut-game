@@ -454,6 +454,9 @@ tbody tr:hover { background:var(--accent-pale); }
 .speed-final-score span:last-child { color:var(--text-dim); font-size:.9rem; }
 .new-best-text { color:var(--orange); font-weight:700; font-size:1.1rem; margin-bottom:20px; animation:pulse .6s ease infinite alternate; }
 
+/* ===== FOOTNOTE ===== */
+.site-footnote { text-align:center; padding:24px 20px; font-size:.75rem; color:var(--text-muted); line-height:1.5; max-width:600px; margin:0 auto; }
+
 /* ===== BUTTONS ===== */
 .btn-primary { padding:14px 32px; border:none; border-radius:var(--radius-sm); background:linear-gradient(135deg,#B7472A,#D4532F); color:white; font-size:.9rem; font-weight:700; cursor:pointer; transition:var(--transition); font-family:inherit; box-shadow:0 4px 16px var(--accent-glow); }
 .btn-primary:hover { transform:translateY(-2px); box-shadow:0 6px 24px var(--accent-glow); }
