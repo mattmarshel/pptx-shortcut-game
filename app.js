@@ -5,66 +5,66 @@
 
 // ===== SHORTCUT DATA =====
 const SHORTCUTS = [
-    { title: "Wrap Text", key: "Ctrl+7", category: "Formatting" },
-    { title: "Do Not Wrap Text", key: "Ctrl+Shift+7", category: "Formatting" },
+    { title: "Wrap Text", key: "Ctrl+7", macKey: "Cmd+7", category: "Formatting" },
+    { title: "Do Not Wrap Text", key: "Ctrl+Shift+7", macKey: "Cmd+Shift+7", category: "Formatting" },
     { title: "Quick Keys", key: "Ctrl+Alt+Q", category: "Tools" },
-    { title: "Toggle Moons, Shapes and Flows (e.g. Cycle Harvey Ball states)", key: "Ctrl+T", category: "Shapes", mustHave: true },
-    { title: "Make Same Size", key: "Alt+Z", category: "Alignment", mustHave: true },
-    { title: "Make Same Height", key: "Ctrl+Shift+E", category: "Alignment" },
-    { title: "Make Same Width", key: "Ctrl+Alt+E", category: "Alignment" },
-    { title: "Insert Textbox", key: "Alt+Q", category: "Insert", mustHave: true },
+    { title: "Toggle Moons, Shapes and Flows (e.g. Cycle Harvey Ball states)", key: "Ctrl+T", macKey: "Control+T", category: "Shapes", mustHave: true },
+    { title: "Make Same Size", key: "Alt+Z", macKey: "Option+Z", category: "Alignment", mustHave: true },
+    { title: "Make Same Height", key: "Ctrl+Shift+E", macKey: "Cmd+Shift+E", category: "Alignment" },
+    { title: "Make Same Width", key: "Ctrl+Alt+E", macKey: "Cmd+Option+E", category: "Alignment" },
+    { title: "Insert Textbox", key: "Alt+Q", macKey: "Control+Q", category: "Insert", mustHave: true },
     { title: "Text to Autoshape", key: "Alt+Shift+Z", category: "Shapes" },
-    { title: "Align and Group", key: "Alt+G", category: "Alignment" },
-    { title: "Copy Position", key: "Ctrl+1", category: "Position" },
-    { title: "Paste Position", key: "Ctrl+2", category: "Position" },
-    { title: "Normal View", key: "Ctrl+3", category: "View" },
-    { title: "Slide Sorter View", key: "Ctrl+4", category: "View" },
-    { title: "Fit to Window", key: "Ctrl+5", category: "View" },
+    { title: "Align and Group", key: "Alt+G", macKey: "Option+G", category: "Alignment" },
+    { title: "Copy Position", key: "Ctrl+1", macKey: "Option+1", category: "Position" },
+    { title: "Paste Position", key: "Ctrl+2", macKey: "Option+2", category: "Position" },
+    { title: "Normal View", key: "Ctrl+3", macKey: "Cmd+1", category: "View" },
+    { title: "Slide Sorter View", key: "Ctrl+4", macKey: "Cmd+2", category: "View" },
+    { title: "Fit to Window", key: "Ctrl+5", macKey: "Cmd+Option+O", category: "View" },
     { title: "Insert Flag", key: "Ctrl+6", category: "Insert" },
-    { title: "Insert Sticky Note", key: "Ctrl+0", category: "Insert", mustHave: true },
-    { title: "Insert Sticker", key: "Ctrl+Alt+S", category: "Insert" },
-    { title: "Insert Legend", key: "Ctrl+Alt+L", category: "Insert" },
-    { title: "Reset Fixed Elements", key: "Ctrl+Alt+R", category: "Tools" },
-    { title: "Split/Join Textboxes", key: "Ctrl+Alt+J", category: "Tools" },
-    { title: "Align Vertically", key: "Ctrl+Alt+M", category: "Alignment" },
-    { title: "Align Horizontally", key: "Ctrl+Alt+C", category: "Alignment" },
-    { title: "Align Left", key: "Ctrl+Alt+Left Arrow", category: "Alignment", mustHave: true },
-    { title: "Align Right", key: "Ctrl+Alt+Right Arrow", category: "Alignment", mustHave: true },
-    { title: "Align Top", key: "Ctrl+Alt+Up Arrow", category: "Alignment", mustHave: true },
-    { title: "Align Bottom", key: "Ctrl+Alt+Down Arrow", category: "Alignment", mustHave: true },
-    { title: "Distribute Vertically", key: "Alt+Shift+V", category: "Alignment", mustHave: true },
-    { title: "Distribute Horizontally", key: "Alt+Shift+H", category: "Alignment", mustHave: true },
+    { title: "Insert Sticky Note", key: "Ctrl+0", macKey: "Cmd+0", category: "Insert", mustHave: true },
+    { title: "Insert Sticker", key: "Ctrl+Alt+S", macKey: "Cmd+Option+S", category: "Insert" },
+    { title: "Insert Legend", key: "Ctrl+Alt+L", macKey: "Control+Option+L", category: "Insert" },
+    { title: "Reset Fixed Elements", key: "Ctrl+Alt+R", macKey: "Control+Option+R", category: "Tools" },
+    { title: "Split/Join Textboxes", key: "Ctrl+Alt+J", macKey: "Control+Option+J", category: "Tools" },
+    { title: "Align Vertically", key: "Ctrl+Alt+M", macKey: "Control+Cmd+M", category: "Alignment" },
+    { title: "Align Horizontally", key: "Ctrl+Alt+C", macKey: "Control+Cmd+C", category: "Alignment" },
+    { title: "Align Left", key: "Ctrl+Alt+Left Arrow", macKey: "Control+Cmd+Left Arrow", category: "Alignment", mustHave: true },
+    { title: "Align Right", key: "Ctrl+Alt+Right Arrow", macKey: "Control+Cmd+Right Arrow", category: "Alignment", mustHave: true },
+    { title: "Align Top", key: "Ctrl+Alt+Up Arrow", macKey: "Control+Cmd+Up Arrow", category: "Alignment", mustHave: true },
+    { title: "Align Bottom", key: "Ctrl+Alt+Down Arrow", macKey: "Control+Cmd+Down Arrow", category: "Alignment", mustHave: true },
+    { title: "Distribute Vertically", key: "Alt+Shift+V", macKey: "Option+Shift+V", category: "Alignment", mustHave: true },
+    { title: "Distribute Horizontally", key: "Alt+Shift+H", macKey: "Option+Shift+H", category: "Alignment", mustHave: true },
     { title: "Paste Unformatted Text", key: "Ctrl+Alt+T", category: "Formatting", mustHave: true },
-    { title: "Resize Shape to Fit Text", key: "Ctrl+8", altKey: "Ctrl+Shift+W", category: "Shapes", mustHave: true },
-    { title: "Apply Default Text Format", key: "Ctrl+Space", category: "Formatting" },
+    { title: "Resize Shape to Fit Text", key: "Ctrl+8", altKey: "Ctrl+Shift+W", macKey: "Cmd+8", category: "Shapes", mustHave: true },
+    { title: "Apply Default Text Format", key: "Ctrl+Space", macKey: "Control+Spacebar", category: "Formatting" },
     { title: "Cycle Accent Colors", key: "Alt+Shift+A", category: "Formatting" },
-    { title: "Insert New Slide", key: "Ctrl+M", category: "Insert" },
+    { title: "Insert New Slide", key: "Ctrl+M", macKey: "Cmd+Shift+N", category: "Insert" },
     { title: "Change Font Size", key: "Ctrl+Shift+O", category: "Formatting" },
-    { title: "Group", key: "Ctrl+G", category: "Alignment", mustHave: true },
-    { title: "Ungroup", key: "Ctrl+Shift+G", category: "Alignment", mustHave: true },
-    { title: "Copy Style", key: "Ctrl+Shift+C", category: "Formatting", mustHave: true },
-    { title: "Paste Style", key: "Ctrl+Shift+V", category: "Formatting", mustHave: true },
+    { title: "Group", key: "Ctrl+G", macKey: "Cmd+Option+G", category: "Alignment", mustHave: true },
+    { title: "Ungroup", key: "Ctrl+Shift+G", macKey: "Cmd+Option+Shift+G", category: "Alignment", mustHave: true },
+    { title: "Copy Style", key: "Ctrl+Shift+C", macKey: "Cmd+Shift+C", category: "Formatting", mustHave: true },
+    { title: "Paste Style", key: "Ctrl+Shift+V", macKey: "Cmd+Shift+V", category: "Formatting", mustHave: true },
     { title: "Green Print", key: "Ctrl+Alt+P", category: "Print" },
     { title: "Green Print Two Slides", key: "Ctrl+Alt+2", category: "Print" },
     { title: "Green Print Four Slides", key: "Ctrl+Alt+4", category: "Print" },
-    { title: "Insert Footnote", key: "Ctrl+Alt+F", category: "Insert" },
-    { title: "Increase Text Indentation List Level", key: "Alt+Shift+Right Arrow", category: "Lists", mustHave: true },
-    { title: "Decrease Text Indentation List Level", key: "Alt+Shift+Left Arrow", category: "Lists", mustHave: true },
+    { title: "Insert Footnote", key: "Ctrl+Alt+F", macKey: "Cmd+Option+F", category: "Insert" },
+    { title: "Increase Text Indentation List Level", key: "Alt+Shift+Right Arrow", macKey: "Cmd+]", category: "Lists", mustHave: true },
+    { title: "Decrease Text Indentation List Level", key: "Alt+Shift+Left Arrow", macKey: "Cmd+[", category: "Lists", mustHave: true },
     { title: "List Line Spacing", key: "Ctrl+Shift+L", category: "Lists" },
-    { title: "Bring to Front", key: "Alt+Shift+]", category: "Ordering" },
-    { title: "Bring Forward", key: "Alt+]", category: "Ordering" },
-    { title: "Send to Back", key: "Alt+Shift+[", category: "Ordering" },
-    { title: "Send Backward", key: "Alt+[", category: "Ordering" },
-    { title: "Shuffle Text Line Up", key: "Alt+Shift+Up Arrow", category: "Formatting", mustHave: true },
-    { title: "Shuffle Text Line Down", key: "Alt+Shift+Down Arrow", category: "Formatting", mustHave: true },
-    { title: "Increase Font Size", key: "Ctrl+Shift+>", category: "Formatting", mustHave: true },
-    { title: "Decrease Font Size", key: "Ctrl+Shift+<", category: "Formatting", mustHave: true },
-    { title: "Jump Between Objects", key: "Alt+Arrow Key", category: "Tools" },
-    { title: "Select Multiple Objects", key: "Click+Drag or Shift+Click", category: "Mouse", mustHave: true },
-    { title: "Move Horizontally / Vertically", key: "Shift+Drag", category: "Mouse", mustHave: true },
-    { title: "Copy Object", key: "Ctrl+Drag", category: "Mouse", mustHave: true },
-    { title: "Copy + Move Horizontally / Vertically", key: "Ctrl+Shift+Drag", category: "Mouse", mustHave: true },
-    { title: "Zoom In / Out", key: "Ctrl+Scroll", category: "Mouse", mustHave: true }
+    { title: "Bring to Front", key: "Alt+Shift+]", macKey: "Cmd+Shift+F", category: "Ordering" },
+    { title: "Bring Forward", key: "Alt+]", macKey: "Cmd+Option+Shift+F", category: "Ordering" },
+    { title: "Send to Back", key: "Alt+Shift+[", macKey: "Cmd+Shift+B", category: "Ordering" },
+    { title: "Send Backward", key: "Alt+[", macKey: "Cmd+Option+Shift+B", category: "Ordering" },
+    { title: "Shuffle Text Line Up", key: "Alt+Shift+Up Arrow", macKey: "Control+Shift+Up Arrow", category: "Formatting", mustHave: true },
+    { title: "Shuffle Text Line Down", key: "Alt+Shift+Down Arrow", macKey: "Control+Shift+Down Arrow", category: "Formatting", mustHave: true },
+    { title: "Increase Font Size", key: "Ctrl+Shift+>", macKey: "Cmd+Shift+>", category: "Formatting", mustHave: true },
+    { title: "Decrease Font Size", key: "Ctrl+Shift+<", macKey: "Cmd+Shift+<", category: "Formatting", mustHave: true },
+    { title: "Jump Between Objects", key: "Alt+Arrow Key", macKey: "Tab or Shift+Tab", category: "Tools" },
+    { title: "Select Multiple Objects", key: "Click+Drag or Shift+Click", macKey: "Click+Drag or Shift+Click", category: "Mouse", mustHave: true },
+    { title: "Move Horizontally / Vertically", key: "Shift+Drag", macKey: "Shift+Drag", category: "Mouse", mustHave: true },
+    { title: "Copy Object", key: "Ctrl+Drag", macKey: "Control+Drag", category: "Mouse", mustHave: true },
+    { title: "Copy + Move Horizontally / Vertically", key: "Ctrl+Shift+Drag", macKey: "Control+Shift+Drag", category: "Mouse", mustHave: true },
+    { title: "Zoom In / Out", key: "Ctrl+Scroll", macKey: "Cmd+Scroll", category: "Mouse", mustHave: true }
 ];
 
 const CATEGORIES = [...new Set(SHORTCUTS.map(s => s.category))];
@@ -696,13 +696,15 @@ let state = {
     speedTimer: null,
     speedTimeLeft: 60,
     activeCategory: null,
-    mustHaveOnly: false
+    mustHaveOnly: false,
+    platform: 'windows'
 };
 
 // ===== INIT =====
 function init() {
     loadProgress();
     addSVGDefs();
+    renderPlatformToggle();
     setupNav();
     setupDashboard();
     setupLearn();
@@ -710,6 +712,35 @@ function init() {
     setupQuiz();
     setupSpeed();
     updateHeaderStats();
+}
+
+function renderPlatformToggle() {
+    const container = document.getElementById('platformToggle');
+    if (!container) return;
+    container.innerHTML = `
+        <div class="platform-toggle">
+            <button class="platform-btn ${state.platform === 'windows' ? 'active' : ''}" data-platform="windows"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/></svg> Windows</button>
+            <button class="platform-btn ${state.platform === 'mac' ? 'active' : ''}" data-platform="mac"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg> Mac</button>
+        </div>
+    `;
+    container.querySelectorAll('.platform-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            if (btn.dataset.platform === state.platform) return;
+            state.platform = btn.dataset.platform;
+            saveProgress();
+            renderPlatformToggle();
+            setupDashboard();
+            updateHeaderStats();
+            const activeView = document.querySelector('.view.active');
+            if (activeView) {
+                const mode = activeView.id;
+                if (mode === 'learn') initLearnDeck();
+                if (mode === 'practice') initPractice();
+                if (mode === 'quiz') initQuiz();
+                if (mode === 'speed') initSpeed();
+            }
+        });
+    });
 }
 
 function addSVGDefs() {
@@ -738,6 +769,7 @@ function loadProgress() {
             state.progress = data.progress || {};
             state.streak = data.streak || 0;
             state.bestSpeed = data.bestSpeed || 0;
+            state.platform = data.platform || 'windows';
         }
     } catch (e) { /* ignore */ }
     SHORTCUTS.forEach(s => {
@@ -754,7 +786,7 @@ function loadProgress() {
 function saveProgress() {
     try {
         localStorage.setItem('pptx-shortcut-master', JSON.stringify({
-            progress: state.progress, streak: state.streak, bestSpeed: state.bestSpeed
+            progress: state.progress, streak: state.streak, bestSpeed: state.bestSpeed, platform: state.platform
         }));
     } catch (e) { /* ignore */ }
 }
@@ -783,20 +815,45 @@ function shuffle(arr) {
     return a;
 }
 
+function getPlatformShortcuts() {
+    if (state.platform === 'mac') return SHORTCUTS.filter(s => s.macKey);
+    return SHORTCUTS;
+}
+
+function getShortcutKey(shortcut) {
+    return state.platform === 'mac' ? (shortcut.macKey || shortcut.key) : shortcut.key;
+}
+
+function getShortcutAltKey(shortcut) {
+    return state.platform === 'mac' ? (shortcut.macAltKey || null) : (shortcut.altKey || null);
+}
+
+function getDisplayKey(shortcut) {
+    const key = getShortcutKey(shortcut);
+    const altKey = getShortcutAltKey(shortcut);
+    return altKey ? `${key} or ${altKey}` : key;
+}
+
 function getFilteredShortcuts() {
     let shortcuts = [...SHORTCUTS];
+    if (state.platform === 'mac') shortcuts = shortcuts.filter(s => s.macKey);
     if (state.activeCategory) shortcuts = shortcuts.filter(s => s.category === state.activeCategory);
     if (state.mustHaveOnly) shortcuts = shortcuts.filter(s => s.mustHave);
     return shortcuts;
 }
 
-function getMasteredCount() { return Object.values(state.progress).filter(p => p.status === 'mastered').length; }
-function getLearningCount() { return Object.values(state.progress).filter(p => p.status === 'learning').length; }
-function getNewCount() { return Object.values(state.progress).filter(p => p.status === 'new').length; }
+function getMasteredCount() { return getPlatformShortcuts().filter(s => state.progress[s.title] && state.progress[s.title].status === 'mastered').length; }
+function getLearningCount() { return getPlatformShortcuts().filter(s => state.progress[s.title] && state.progress[s.title].status === 'learning').length; }
+function getNewCount() { return getPlatformShortcuts().filter(s => state.progress[s.title] && state.progress[s.title].status === 'new').length; }
 
 function updateHeaderStats() {
     document.getElementById('masteredCount').textContent = getMasteredCount();
     document.getElementById('streakCount').textContent = state.streak;
+    const total = getPlatformShortcuts().length;
+    const masteredLabel = document.getElementById('masteredCountLabel');
+    if (masteredLabel) masteredLabel.textContent = total;
+    const heroCount = document.getElementById('heroShortcutCount');
+    if (heroCount) heroCount.textContent = total;
 }
 
 function markCorrect(title) {
@@ -848,7 +905,23 @@ function setupDashboard() {
     renderMustHaveToggle();
     renderCategoryChips();
     renderShortcutTable();
+    updateFooter();
     document.getElementById('resetProgress').onclick = resetAllProgress;
+}
+
+function updateFooter() {
+    const footer = document.getElementById('siteFootnote');
+    if (!footer) return;
+    if (state.platform === 'mac') {
+        footer.innerHTML = `
+            <p>Showing ${getPlatformShortcuts().length} shortcuts with Mac equivalents. ${SHORTCUTS.length - getPlatformShortcuts().length} plugin/add-in shortcuts are Windows-only and hidden in Mac mode.</p>
+            <p class="mac-note">To access all ${getPlatformShortcuts().length} Mac keyboard shortcuts, <a href="https://mckinsey.service-now.com/ghd/en/keyboard-shortcuts-stopped-working-in-powerpoint-on-macos?id=mck_ghd_kb_article&sysparm_article=KO101191&sys_kb_id=c4e3be63975c9a50120bf1a3f153af19" target="_blank" rel="noopener noreferrer">download the McKinsey macOS customized PowerPoint keyboard shortcuts</a>.</p>
+        `;
+    } else {
+        footer.innerHTML = `
+            <p>These shortcuts can vary based on computer type (Windows and Mac) and computer settings (keyboard language/layout). These shortcuts have been tested with Windows and Mac on an American keyboard (QWERTY layout).</p>
+        `;
+    }
 }
 
 function renderMustHaveToggle() {
@@ -881,22 +954,25 @@ function renderMustHaveToggle() {
 }
 
 function updateProgressRing() {
+    const total = getPlatformShortcuts().length;
     const mastered = getMasteredCount();
-    const total = SHORTCUTS.length;
-    const percent = Math.round((mastered / total) * 100);
+    const learning = getLearningCount();
+    const newCount = total - mastered - learning;
+    const percent = total > 0 ? Math.round((mastered / total) * 100) : 0;
     document.getElementById('progressPercent').textContent = percent + '%';
-    document.getElementById('newCount').textContent = getNewCount();
-    document.getElementById('learningCount').textContent = getLearningCount();
+    document.getElementById('newCount').textContent = newCount;
+    document.getElementById('learningCount').textContent = learning;
     document.getElementById('masteredCountDash').textContent = mastered;
     const ring = document.getElementById('progressRingFill');
     const circumference = 2 * Math.PI * 70;
-    ring.style.strokeDashoffset = circumference - (mastered / total) * circumference;
+    ring.style.strokeDashoffset = total > 0 ? circumference - (mastered / total) * circumference : circumference;
 }
 
 function renderCategoryChips() {
     const container = document.getElementById('categoryChips');
     container.innerHTML = '';
-    const pool = state.mustHaveOnly ? SHORTCUTS.filter(s => s.mustHave) : SHORTCUTS;
+    const base = getPlatformShortcuts();
+    const pool = state.mustHaveOnly ? base.filter(s => s.mustHave) : base;
     const allChip = document.createElement('button');
     allChip.className = 'category-chip' + (!state.activeCategory ? ' active' : '');
     allChip.textContent = `All (${pool.length})`;
@@ -919,12 +995,14 @@ function renderShortcutTable(filter = '') {
     let shortcuts = getFilteredShortcuts();
     if (filter) {
         const lf = filter.toLowerCase();
-        shortcuts = shortcuts.filter(s => s.title.toLowerCase().includes(lf) || s.key.toLowerCase().includes(lf) || s.category.toLowerCase().includes(lf));
+        shortcuts = shortcuts.filter(s => s.title.toLowerCase().includes(lf) || getShortcutKey(s).toLowerCase().includes(lf) || s.category.toLowerCase().includes(lf));
     }
     shortcuts.forEach(s => {
         const p = state.progress[s.title];
         const tr = document.createElement('tr');
-        const keyDisplay = s.altKey ? `<span class="shortcut-key">${s.key}</span> <span style="font-size:.7rem;color:var(--text-muted)">or</span> <span class="shortcut-key">${s.altKey}</span>` : `<span class="shortcut-key">${s.key}</span>`;
+        const pKey = getShortcutKey(s);
+        const pAltKey = getShortcutAltKey(s);
+        const keyDisplay = pAltKey ? `<span class="shortcut-key">${pKey}</span> <span style="font-size:.7rem;color:var(--text-muted)">or</span> <span class="shortcut-key">${pAltKey}</span>` : `<span class="shortcut-key">${pKey}</span>`;
         const mustHaveBadge = s.mustHave ? '<span class="must-have-badge" title="Must-have shortcut">&#9733;</span> ' : '';
         tr.innerHTML = `<td>${mustHaveBadge}${s.title}</td><td>${keyDisplay}</td><td><span class="category-badge">${s.category}</span></td><td><span class="status-badge ${p.status}">${p.status}</span></td>`;
         tbody.appendChild(tr);
@@ -962,7 +1040,7 @@ function showCard() {
     const idx = state.currentCard % deck.length;
     const card = deck[idx];
     document.getElementById('cardFrontText').textContent = card.title;
-    document.getElementById('cardBackText').textContent = card.altKey ? `${card.key} or ${card.altKey}` : card.key;
+    document.getElementById('cardBackText').textContent = getDisplayKey(card);
     document.getElementById('cardProgress').textContent = `${idx + 1} / ${deck.length}`;
     document.getElementById('cardProgressFill').style.width = ((idx + 1) / deck.length * 100) + '%';
     // Show visual on flashcard front
@@ -1059,14 +1137,23 @@ function handlePracticeKey(e) {
     if (e.target.id === 'typeFallback') return;
     e.preventDefault();
     const parts = [];
-    if (e.ctrlKey || e.metaKey) parts.push('Ctrl');
-    if (e.altKey) parts.push('Alt');
-    if (e.shiftKey) parts.push('Shift');
+    if (state.platform === 'mac') {
+        if (e.ctrlKey) parts.push('Control');
+        if (e.metaKey) parts.push('Cmd');
+        if (e.altKey) parts.push('Option');
+        if (e.shiftKey) parts.push('Shift');
+    } else {
+        if (e.ctrlKey || e.metaKey) parts.push('Ctrl');
+        if (e.altKey) parts.push('Alt');
+        if (e.shiftKey) parts.push('Shift');
+    }
     const keyMap = { 'ArrowLeft':'Left Arrow', 'ArrowRight':'Right Arrow', 'ArrowUp':'Up Arrow', 'ArrowDown':'Down Arrow', 'BracketRight':']', 'BracketLeft':'[', ' ':'Space', 'Space':'Space' };
     let key = e.key;
     if (keyMap[key]) key = keyMap[key];
     else if (keyMap[e.code]) key = keyMap[e.code];
+    else if (key === 'Tab') key = 'Tab';
     else if (key.length === 1) key = key.toUpperCase();
+    if (state.platform === 'mac' && key === 'Space') key = 'Spacebar';
     if (['Control', 'Alt', 'Shift', 'Meta'].includes(key)) {
         document.getElementById('keyDisplay').innerHTML = `<span style="color:var(--accent)">${parts.join('+') + '+...'}</span>`;
         return;
@@ -1078,7 +1165,7 @@ function handlePracticeKey(e) {
     const q = state.practiceQueue;
     const idx = state.practiceIndex % q.length;
     const shortcut = q[idx];
-    const displayKey = shortcut.altKey ? `${shortcut.key} or ${shortcut.altKey}` : shortcut.key;
+    const displayKey = getDisplayKey(shortcut);
     if (isCorrectKey(pressed, shortcut)) {
         display.className = 'key-display correct';
         document.getElementById('practiceFeedback').textContent = 'Correct!';
@@ -1101,18 +1188,21 @@ function handlePracticeKey(e) {
 function normalizeKey(k) {
     return k.toLowerCase().replace(/\s+/g, '')
         .replace('arrowleft', 'leftarrow').replace('arrowright', 'rightarrow')
-        .replace('arrowup', 'uparrow').replace('arrowdown', 'downarrow');
+        .replace('arrowup', 'uparrow').replace('arrowdown', 'downarrow')
+        .replace('spacebar', 'space');
 }
 
 function isCorrectKey(pressed, shortcut) {
     const norm = normalizeKey(pressed);
-    if (norm === normalizeKey(shortcut.key)) return true;
-    if (shortcut.altKey && norm === normalizeKey(shortcut.altKey)) return true;
-    // Accept any Alt+Arrow for "Jump Between Objects"
-    if (shortcut.key === 'Alt+Arrow Key' && /^alt\+(left|right|up|down)arrow$/.test(norm)) return true;
-    // Mouse shortcuts: accept if typed text matches the key display (case-insensitive, trimmed)
-    if (shortcut.category === 'Mouse') {
-        const parts = shortcut.key.toLowerCase().split(' or ').map(s => s.trim());
+    const key = getShortcutKey(shortcut);
+    const altKey = getShortcutAltKey(shortcut);
+    if (norm === normalizeKey(key)) return true;
+    if (altKey && norm === normalizeKey(altKey)) return true;
+    // Accept any Alt+Arrow for "Jump Between Objects" in Windows mode
+    if (state.platform !== 'mac' && shortcut.key === 'Alt+Arrow Key' && /^alt\+(left|right|up|down)arrow$/.test(norm)) return true;
+    // Handle "or" composite keys (Mouse shortcuts, Tab or Shift+Tab, etc.)
+    if (key.includes(' or ')) {
+        const parts = key.split(' or ').map(s => s.trim());
         return parts.some(p => norm === normalizeKey(p));
     }
     return false;
@@ -1122,7 +1212,7 @@ function showPracticeAnswer() {
     const q = state.practiceQueue;
     const idx = state.practiceIndex % q.length;
     const shortcut = q[idx];
-    const displayKey = shortcut.altKey ? `${shortcut.key} or ${shortcut.altKey}` : shortcut.key;
+    const displayKey = getDisplayKey(shortcut);
     document.getElementById('keyDisplay').innerHTML = `<span style="color:var(--accent)">${displayKey}</span>`;
     document.getElementById('keyDisplay').className = 'key-display';
     document.getElementById('practiceFeedback').textContent = 'Answer revealed';
@@ -1138,7 +1228,7 @@ function handleTypedAnswer() {
     const q = state.practiceQueue;
     const idx = state.practiceIndex % q.length;
     const shortcut = q[idx];
-    const displayKey = shortcut.altKey ? `${shortcut.key} or ${shortcut.altKey}` : shortcut.key;
+    const displayKey = getDisplayKey(shortcut);
     const display = document.getElementById('keyDisplay');
     display.innerHTML = `<span>${typed}</span>`;
     if (isCorrectKey(typed, shortcut)) {
@@ -1190,9 +1280,10 @@ function showQuizQuestion() {
     document.getElementById('quizProgressFill').style.width = ((state.quizIndex + 1) / state.quizQuestions.length * 100) + '%';
     document.getElementById('quizNext').style.display = 'none';
     state.quizAnswered = false;
-    const correctKey = current.key;
-    const wrongPool = SHORTCUTS.filter(s => s.key !== correctKey);
-    const wrongOptions = shuffle(wrongPool).slice(0, 3).map(s => s.key);
+    const correctKey = getShortcutKey(current);
+    const pool = getFilteredShortcuts();
+    const wrongPool = pool.filter(s => getShortcutKey(s) !== correctKey);
+    const wrongOptions = shuffle(wrongPool).slice(0, 3).map(s => getShortcutKey(s));
     const options = shuffle([correctKey, ...wrongOptions]);
     const container = document.getElementById('quizOptions');
     container.innerHTML = '';
@@ -1246,7 +1337,7 @@ function showQuizResults() {
             missed.slice(0, wrong).forEach(m => {
                 const div = document.createElement('div');
                 div.className = 'missed-item';
-                div.innerHTML = `<span>${m.title}</span><span class="shortcut-key">${m.key}</span>`;
+                div.innerHTML = `<span>${m.title}</span><span class="shortcut-key">${getShortcutKey(m)}</span>`;
                 missedContainer.appendChild(div);
             });
         }
@@ -1298,9 +1389,10 @@ function showSpeedQuestion() {
     // Show visual in speed mode
     const visContainer = document.getElementById('speedVisual');
     if (visContainer) visContainer.innerHTML = renderVisual(current.title);
-    const correctKey = current.key;
-    const wrongPool = SHORTCUTS.filter(s => s.key !== correctKey);
-    const wrongOptions = shuffle(wrongPool).slice(0, 3).map(s => s.key);
+    const correctKey = getShortcutKey(current);
+    const speedPool = getFilteredShortcuts();
+    const wrongPool = speedPool.filter(s => getShortcutKey(s) !== correctKey);
+    const wrongOptions = shuffle(wrongPool).slice(0, 3).map(s => getShortcutKey(s));
     const options = shuffle([correctKey, ...wrongOptions]);
     const container = document.getElementById('speedOptions');
     container.innerHTML = '';

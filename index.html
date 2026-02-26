@@ -25,10 +25,11 @@
                 </div>
                 <h1>PowerPoint<span>Master</span></h1>
             </div>
+            <div id="platformToggle"></div>
             <div class="header-stats">
                 <div class="stat-pill" id="headerMastered">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                    <span><strong id="masteredCount">0</strong> / 60 mastered</span>
+                    <span><strong id="masteredCount">0</strong> / <span id="masteredCountLabel">60</span> mastered</span>
                 </div>
                 <div class="stat-pill" id="headerStreak">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
@@ -64,7 +65,7 @@
         <!-- DASHBOARD VIEW -->
         <section id="dashboard" class="view active">
             <div class="dashboard-hero">
-                <h2>Master 60 PowerPoint Shortcuts Today</h2>
+                <h2>Master <span id="heroShortcutCount">60</span> PowerPoint Shortcuts Today</h2>
                 <p>Learn, practice, and test your knowledge with four interactive modes.</p>
             </div>
 
@@ -155,8 +156,7 @@
                 <button class="btn-reset" id="resetProgress">Reset All Progress</button>
             </div>
 
-            <footer class="site-footnote">
-                <p>These shortcuts can vary based on computer type (Windows and Mac) and computer settings (keyboard language/layout). These shortcuts have been tested with Windows on an American keyboard (QWERTY layout).</p>
+            <footer class="site-footnote" id="siteFootnote">
             </footer>
         </section>
 
