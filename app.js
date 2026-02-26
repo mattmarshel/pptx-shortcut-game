@@ -702,7 +702,9 @@ let state = {
 
 // ===== INIT =====
 function init() {
+    SCORM.init();
     loadProgress();
+    SCORM.reportProgress(getMasteredCount(), getPlatformShortcuts().length);
     addSVGDefs();
     renderPlatformToggle();
     setupNav();
@@ -864,6 +866,7 @@ function markCorrect(title) {
     else if (p.status === 'new') p.status = 'learning';
     state.streak++;
     saveProgress(); updateHeaderStats();
+    SCORM.reportProgress(getMasteredCount(), getPlatformShortcuts().length);
 }
 
 function markWrong(title) {
@@ -1434,3 +1437,4 @@ function endSpeedRun() {
 
 // ===== BOOTSTRAP =====
 document.addEventListener('DOMContentLoaded', init);
+window.addEventListener('beforeunload', function () { SCORM.terminate(); });
